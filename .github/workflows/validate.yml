@@ -8,8 +8,6 @@ on:
       - 'scripts/validate-skills.sh'
       - '.github/workflows/validate.yml'
   push:
-    branches:
-      - main
     paths:
       - 'skills/**'
       - 'tests/routing-cases.jsonl'
