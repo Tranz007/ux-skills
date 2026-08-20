@@ -4,7 +4,7 @@ description: Prepare UX work for engineering by preserving user intent, behavior
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Handoff
@@ -75,6 +75,16 @@ If the user only needs a handoff, do not create ticket-shaped output just becaus
 ## Output
 
 Create the smallest engineering package that makes the intended experience clear and testable. Point to authoritative design-system, decision, research, or design sources rather than duplicating them.
+
+## Contrast example
+
+Bad:
+> Implement the updated verification screens according to Figma. Include loading and error states and make sure the experience is accessible.
+
+Good:
+> When verification fails, remain on the current step, preserve the entered code, show the inline error, and move focus to the error summary. Reuse the existing Alert and verification-input patterns. The expired-code recovery path is still unresolved; engineering should not invent that behavior.
+
+Why: the good handoff transfers behavior, system usage, accessibility intent, and unresolved decisions instead of handing engineering a picture plus vague instructions.
 
 ## Examples
 

@@ -4,7 +4,7 @@ description: Find missing interface and service states such as loading, empty, p
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # State Sweep
@@ -52,6 +52,16 @@ Do not create a separate visual state when the existing system behavior already 
 Produce a concise state map. For each missing state, include the trigger, expected user-visible behavior, recovery path, and whether the design system already supports it.
 
 Prioritize states whose absence can strand a user, lose work, create incorrect confidence, or produce inconsistent implementation.
+
+## Contrast example
+
+Bad:
+> Consider loading, empty, error, success, offline, permission, timeout, disabled, hover, focus, validation, and edge-case states.
+
+Good:
+> After the user submits payment, the request can remain pending while the service responds. The current design leaves Submit available during that transition, so a second submission is possible. Add a pending state that prevents duplicate submission, preserves the entered data, communicates progress, and defines what happens if the request times out.
+
+Why: the good response starts from a real transition and consequence instead of generating a generic state inventory.
 
 ## Examples
 

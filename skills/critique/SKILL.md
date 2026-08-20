@@ -4,7 +4,7 @@ description: Review and compare UX designs, flows, prototypes, specifications, o
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Critique
@@ -63,6 +63,16 @@ When the work is strong, spend fewer words validating it. Do not manufacture iss
 ## Guardrails
 
 Do not claim accessibility compliance from visual or code inspection alone. Do not invent research findings. Do not prefer novelty over an established system pattern without evidence.
+
+## Contrast example
+
+Bad:
+> Improve the visual hierarchy, make the CTA more prominent, simplify the form, and consider accessibility.
+
+Good:
+> The primary action appears available before the required travel date is valid. That creates a false affordance: the user can try to continue before the form is ready. Keep the action unavailable until the date is valid, or surface validation early enough that the required fix is obvious before submit.
+
+Why: the good critique identifies a specific behavior, explains the consequence, and gives a direction instead of offering generic design advice.
 
 ## Examples
 
