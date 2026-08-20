@@ -1,35 +1,29 @@
-# Context contract
+# Context templates
 
-Use these files as a starting shape, not a form that must be fully completed.
+Keep these small. They are memory aids for UX Skills, not another documentation system.
 
-## PRODUCT.md
-
-```markdown
-# Product
-
-## Purpose
-
-## Primary journeys
-
-## Outcomes and success signals
-
-## Constraints and non-goals
-
-## Sources
-```
-
-## USERS.md
+## CONTEXT.md
 
 ```markdown
-# Users
+# Project context
 
-## Known user groups and roles
+## Product
+What it does, major journeys, important outcomes and constraints.
 
-## Contexts and access needs
+## Users and evidence
+Known users and contexts. Where research, analytics, support feedback, and other evidence live.
 
-## Evidence and research sources
+## Engineering
+Frontend stack, relevant repos, Storybook/testing, issue and PR workflow, technical constraints that affect UX.
 
-## Assumptions and unknowns
+## Accessibility
+Actual standards, policies, and testing expectations used by the team.
+
+## Terminology
+Important product terms, acronyms, and semantic distinctions.
+
+## Unknowns
+Only unresolved things that could materially change future UX recommendations.
 ```
 
 ## DESIGN-SYSTEM.md
@@ -37,98 +31,20 @@ Use these files as a starting shape, not a form that must be fully completed.
 ```markdown
 # Design system
 
-## Sources of truth
+## Sources
+Figma:
+Storybook:
+Repository/package:
+Tokens/docs:
 
-## Components and packages
+## Source of truth
+Which source owns components, behavior, tokens, and visual design?
 
-## Tokens and styling
+## Working rules
+Reuse/composition expectations and contribution path.
 
-## Reuse / contribution rules
-
-## Known gaps and conflicts
-```
-
-## ENGINEERING.md
-
-```markdown
-# Engineering
-
-## Stack
-
-## Relevant repositories and architecture
-
-## Tests and Storybook
-
-## Issue / PR workflow
-
-## Technical constraints affecting UX
-```
-
-## ACCESSIBILITY.md
-
-```markdown
-# Accessibility
-
-## Target standards and policies
-
-## Testing expectations
-
-## Assistive technologies / environments
-
-## Known exceptions or unresolved gaps
-```
-
-## RESEARCH.md
-
-```markdown
-# Research and evidence
-
-## Research locations
-
-## Analytics and telemetry
-
-## Support / customer feedback
-
-## Current important findings
-```
-
-## WORKFLOW.md
-
-```markdown
-# Workflow
-
-## How work enters UX
-
-## Design review and decision ownership
-
-## Design system contribution flow
-
-## Engineering handoff
-
-## Ticket / PR / release conventions
-```
-
-## GLOSSARY.md
-
-```markdown
-# Glossary
-
-| Term | Meaning | Status / notes |
-|---|---|---|
-```
-
-## VOICE.md
-
-```markdown
-# Voice
-
-Default: direct, plain language, minimal structure.
-
-Designers: emphasize problem, evidence, alternatives, uncertainty.
-Engineers: emphasize behavior, states, components, constraints, acceptance criteria.
-Stakeholders: emphasize decision, impact, evidence, risk, next action.
-
-Avoid: corporate filler, invented certainty, promotional claims, unexplained jargon.
+## Known gaps
+Only gaps that matter to current work.
 ```
 
 ## DECISIONS.md
@@ -136,9 +52,7 @@ Avoid: corporate filler, invented certainty, promotional claims, unexplained jar
 ```markdown
 # Decisions
 
-Index consequential design and architecture decisions here, or point to the project's existing ADR / RFC location.
+Record only consequential decisions, or point to the project's existing ADR/RFC location.
 ```
 
-## Status labels
-
-Use `KNOWN`, `INFERRED`, `ASSUMED`, `UNKNOWN`, and `CONFLICTED` only where they materially change how a reader should treat a claim.
+When evidence status matters, use `KNOWN`, `INFERRED`, `ASSUMED`, `UNKNOWN`, or `CONFLICTED`. Do not tag ordinary statements unnecessarily.
