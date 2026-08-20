@@ -1,6 +1,6 @@
 ---
 name: critique
-description: Critique a UX design, flow, prototype, specification, or implemented experience across user goals, evidence, interaction, accessibility, design-system fit, content, and engineering consequences. Use when a designer asks for a review, design critique, tough feedback, or wants to know what should change before approval.
+description: Review and compare UX designs, flows, prototypes, specifications, or implementations against user goals, evidence, interaction behavior, accessibility, design-system fit, content, and engineering intent. Use when a designer asks for critique, comparison, tough feedback, review before approval, or wants to check whether implementation preserved the intended experience.
 license: MIT
 metadata:
   author: Tranz007
@@ -13,7 +13,9 @@ Review the work against its context and intent rather than personal taste.
 
 ## Establish the basis
 
-Inspect the artifact plus relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If the goal is unclear, infer cautiously from available context or ask only if the critique would otherwise be misleading.
+Inspect the artifact plus relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If reviewing implementation, inspect the actual code/diff as well as the intended UX source.
+
+If the goal is unclear, infer cautiously from available context or ask only if the critique would otherwise be misleading.
 
 ## Review through relevant lenses
 
@@ -22,7 +24,7 @@ Use only lenses that matter to this work:
 - user goal and task clarity;
 - evidence and unsupported assumptions;
 - information hierarchy and cognitive effort;
-- interaction behavior and recoverability;
+- interaction behavior, branches, interruption, and recovery;
 - state completeness;
 - content and terminology;
 - accessibility and inclusive use;
@@ -30,28 +32,31 @@ Use only lenses that matter to this work:
 - engineering or service dependencies;
 - trust, privacy, or consequence where relevant.
 
+## Compare when needed
+
+When reviewing multiple options, derive the important decision criteria from the actual problem and evaluate each option against the same criteria. Do not turn the comparison into a beauty contest. "Neither" is a valid recommendation.
+
+## Review implementation drift
+
+When the artifact is code or a PR, look for UX behavior that changed or disappeared: states, recovery, persistence, content, design-system usage, focus/keyboard behavior, or acceptance intent.
+
+A diff does not prove runtime behavior. Say what still needs to be verified rather than presenting inference as fact.
+
 ## Prioritize findings
 
-Separate:
-
-- issues likely to cause failure, exclusion, loss, or misunderstanding;
-- issues that materially weaken the experience;
-- polish that can wait.
-
-Do not create severity labels unless they help the user decide what to address.
-
-## Be specific
+Lead with issues likely to cause failure, exclusion, loss, misunderstanding, or significant implementation drift. Put polish later.
 
 Point to the behavior or element, explain why it matters, and recommend a direction. Avoid vague comments such as "improve hierarchy" without saying what is wrong.
 
-When the design is strong, spend fewer words validating it. Focus attention where change is useful.
+When the work is strong, spend fewer words validating it. Do not manufacture issues.
 
 ## Guardrails
 
-Do not claim accessibility compliance from visual inspection. Do not invent research findings. Do not prefer novelty over an established system pattern without evidence.
+Do not claim accessibility compliance from visual or code inspection alone. Do not invent research findings. Do not prefer novelty over an established system pattern without evidence.
 
 ## Examples
 
 - "Review this before I show engineering."
 - "Give me a tough critique."
-- "What's wrong with this flow?"
+- "Compare these two approaches against the user problem."
+- "Review this PR against the intended experience."
