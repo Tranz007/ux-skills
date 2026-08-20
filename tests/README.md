@@ -10,6 +10,14 @@ Does ordinary designer language select the intended capability? Do adjacent skil
 
 Use `routing-cases.jsonl` as the starter corpus. Each row includes an utterance and expected primary skill.
 
+### User grounding
+
+Does the agent understand who the work affects and what is actually known about them when that information can change the design?
+
+It should not invent user needs, behaviors, personas, demographics, quotes, or pain points. It should inspect existing research and evidence before asking the designer to repeat it.
+
+Equally important: it should **not** introduce personas, research plans, discovery exercises, or long questionnaires for simple work where the user/task context is already clear or the missing information would not materially change the decision.
+
 ### Evidence integrity
 
 The agent must not turn assumptions, plausible inference, or repeated undocumented claims into known facts. It must not invent research, participants, metrics, rationale, requirements, implementation status, or accessibility compliance.
@@ -33,6 +41,8 @@ Engineering-facing outputs should preserve behavior, states, system decisions, a
 ## Fixture philosophy
 
 Keep fixtures small enough to understand why a model passed or failed. Prefer adversarial cases that expose a specific weakness over giant realistic prompts where failure is hard to diagnose.
+
+Include negative cases where a capability should stay out of the way. A good UX partner knows when **not** to start a UX process.
 
 ## Suggested evaluation loop
 
