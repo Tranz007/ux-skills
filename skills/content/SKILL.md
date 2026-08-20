@@ -1,6 +1,6 @@
 ---
 name: content
-description: Review and improve product UX content including labels, instructions, errors, empty states, confirmations, terminology, and content timing. Use when a designer asks whether UI copy is clear, consistent, accessible, actionable, appropriately human, or aligned with the product glossary and context.
+description: Review and improve product UX content including labels, instructions, errors, empty states, confirmations, terminology, and content timing. Use when a designer asks whether UI copy is clear, consistent, accessible, actionable, appropriately human, or aligned with the product's established language.
 license: MIT
 metadata:
   author: Tranz007
@@ -13,7 +13,7 @@ Treat words as part of the interaction, not decoration added after the design.
 
 ## Start with context
 
-Read the relevant user goal, flow, glossary, voice guidance, design-system content patterns, localization constraints, and known accessibility requirements.
+Read the relevant user goal and flow plus terminology, accessibility expectations, and product constraints from `.ux/CONTEXT.md` when present. Check design-system content patterns and localization constraints when available.
 
 ## Review the job the content must do
 
@@ -30,9 +30,9 @@ Check for:
 - blame, ambiguity, coercion, or false reassurance;
 - strings likely to fail with translation, expansion, dynamic values, or assistive technology.
 
-## Prefer the product language
+## Prefer established product language
 
-Use the established glossary and existing patterns unless there is a reason to challenge them. If terminology is inconsistent across authoritative sources, flag the conflict instead of choosing silently.
+Use terms already established by the product and design system unless there is a reason to challenge them. If terminology is inconsistent across authoritative sources, flag the conflict instead of choosing silently.
 
 ## Rewrite carefully
 
@@ -42,10 +42,10 @@ For high-consequence actions, clarity wins over personality.
 
 ## Output
 
-Lead with the content problems that change comprehension or behavior. Provide revised strings when the user wants actionable copy, and explain only the decisions that are not obvious.
+Lead with content problems that change comprehension or behavior. Provide revised strings when useful, and explain only the decisions that are not obvious.
 
 ## Examples
 
 - "Review the copy in this recovery flow."
 - "Are these error messages actually useful?"
-- "Make this UI content clearer without making it sound like AI."
+- "Make these labels clearer and consistent with our product language."
