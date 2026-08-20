@@ -4,7 +4,7 @@ description: Recover or preserve consequential UX and architecture rationale. Us
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Decision
@@ -69,6 +69,16 @@ Preserve what was actually known at decision time. Do not rewrite assumptions as
 ## Output
 
 Answer a "why" question directly when that is all the user needs. Create or recommend a durable record only when the decision is consequential enough to justify it.
+
+## Contrast example
+
+Bad:
+> Create an ADR documenting why the primary button was moved below the form.
+
+Good:
+> This does not need a durable decision record. It is a local layout change with no shared pattern, architectural consequence, or non-obvious tradeoff. The design or PR history is enough.
+
+Why: the good response preserves decision records for choices future teams are likely to question or need to understand.
 
 ## Examples
 
