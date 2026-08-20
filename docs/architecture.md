@@ -1,67 +1,86 @@
 # Architecture
 
-UX Skills is a practitioner-support system built from small Agent Skills. The product experience should feel simpler than the implementation.
+UX Skills is deliberately simpler for the designer than it is internally.
 
-## Layers
+## The user experience
 
-### Core behavior
+There is one setup action:
 
-Every skill should inherit five ideas even when it does not display them explicitly:
+```text
+setup-ux
+```
 
-- **Context** — inspect the product, users, design system, engineering environment, and prior decisions before recommending work.
-- **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct.
-- **System** — prefer existing components and patterns; compose before extending; extend before creating.
-- **Clear** — reduce reading effort, remove generic AI language, and adapt the communication to the reader.
-- **Trust** — do not invent evidence, rationale, requirements, certainty, or implementation status.
+After that, the designer talks normally. They do not need to choose from a skill catalog or orchestrate a workflow.
 
-### UX practice
+Examples:
 
-Skills such as `frame`, `challenge`, `flow`, `blindspots`, `state-sweep`, `critique`, `content`, `compare`, and `test-it` help a practitioner reason about the work.
+- "Challenge this idea."
+- "What am I missing?"
+- "Does this need a new component?"
+- "If I change this, what else moves?"
+- "Get this ready for engineering."
+- "Write the PR description."
 
-### Design system
+The agent selects the relevant skills automatically from their descriptions and the project context.
 
-`system-fit` and `impact` help designers decide whether work belongs inside the existing system and understand consequences of changes.
+## User-invoked vs model-invoked
 
-### Engineering bridge
+`setup-ux` is intentionally user-invoked because it changes the consuming project by creating or refreshing `.ux/` context.
 
-`handoff`, `contract`, `ship`, `tickets`, `pr`, and `pr-review` preserve design intent as work becomes implementation.
+The rest of the suite is model-invoked by default. A designer can still mention a skill name, but should never need to know it.
 
-## Routing
+This separation is central to the product: **the intelligence lives under the surface.**
 
-The system supports two modes at the same time.
+## Shared behavior
 
-**Natural language** is the default. A designer can say "what am I missing?" or "get this ready for engineering" and the relevant skill should be discoverable from its metadata.
+Every skill should follow these rules:
 
-**Explicit invocation** is a shortcut for experienced users who know they want `state-sweep`, `system-fit`, or another named capability.
+- inspect project context before asking the designer to repeat it;
+- distinguish evidence from inference and assumption when it matters;
+- never invent research, requirements, rationale, implementation status, or accessibility compliance;
+- prefer existing components and patterns before adding new ones;
+- keep output direct, readable, and audience-appropriate;
+- preserve designer control over consequential decisions.
 
-`ux-partner` is the broad router for ambiguous UX work. It should choose the smallest useful set of capabilities rather than running a fixed ceremony.
+## The small context layer
 
-## Context is optional, not a gate
+`setup-ux` creates:
 
-`setup-ux` creates a `.ux/` context layer in the consuming project. Skills should use it when present and remain useful when it is incomplete or absent.
+```text
+.ux/
+├── CONTEXT.md
+├── DESIGN-SYSTEM.md
+└── DECISIONS.md
+```
 
-Do not stop useful work simply because a context file is missing. Inspect available artifacts, label uncertainty, make conservative defaults only when safe, and ask when the answer materially changes the recommendation.
+These files prevent repeated explanation. They are not required to be complete and they are not another product-management system.
 
-## Progressive disclosure
+## Skills under the surface
 
-The Agent Skills format loads names and descriptions first, then the full `SKILL.md` only when selected. Keep routing descriptions sharp and skill bodies compact. Large reference material should remain optional.
+The initial suite is intentionally compact:
+
+- `frame`
+- `challenge`
+- `blindspots`
+- `state-sweep`
+- `critique`
+- `accessibility`
+- `content`
+- `system-fit`
+- `ripple`
+- `decision`
+- `handoff`
+- `pr`
+- `clear`
+
+Different skills exist because narrow descriptions route more reliably than one giant "UX expert" prompt. That internal modularity should never become user-facing complexity.
 
 ## Composition
 
-Skills may conceptually compose, but users should not be forced to orchestrate them. A request to ship work may require state coverage, system-fit checks, decision capture, and a handoff. The agent should perform only the checks that are relevant.
+Skills can quietly reinforce one another. A request to review a flow might surface a blind spot, notice missing states, check system fit, and flag an accessibility behavior.
 
-Do not create circular process dependencies or require every upstream artifact to exist before downstream help can happen.
+Do not announce every skill being used unless that information helps the designer. Do not run a fixed UX ceremony just because multiple capabilities are available.
 
 ## Boundaries
 
-UX Skills does not claim to replace:
-
-- user research;
-- professional accessibility testing;
-- design judgment;
-- framework-specific engineering standards;
-- security review;
-- legal or regulatory review;
-- product management decisions.
-
-It can make those needs visible, preserve their outputs, and help teams act on them.
+UX Skills supports practitioner judgment. It does not replace user research, professional accessibility testing, framework-specific engineering review, security review, legal review, or product decision ownership.
