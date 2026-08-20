@@ -32,11 +32,11 @@ description: Find missing UI and service states such as loading, empty, partial,
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.2"
+  version: "0.1.3"
 ---
 ```
 
-The description is routing metadata. Include both what the skill does and when ordinary language should activate it.
+The description is routing metadata. Include both what the skill does and when ordinary language should activate it. Include non-activation language when a skill would otherwise be too eager, as `user-grounding` does for ordinary tasks whose audience and need are already clear.
 
 ## Shared behavior is part of every skill
 
@@ -46,17 +46,22 @@ Repository-level instructions are not guaranteed to travel with an installed ski
 ## Always
 
 - **Context** — inspect what is already known before asking the user to repeat it.
+- **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
 - **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
 
 Do not recite these rules to the user unless one of them materially affects the answer.
+
+Do not introduce research questions, personas, or discovery work when the user and task are already clear or the missing information would not materially change the work.
 ```
 
 Keep this section identical across skills unless the project deliberately changes the shared contract. `scripts/validate-skills.sh` enforces its presence.
 
 `clear` remains a normal skill for rewriting existing material, but Clear is also a baseline behavior for every other skill. The goal is to produce readable work the first time rather than clean up AI prose afterward.
+
+`user-grounding` remains a normal skill for questions about users, evidence, personas, and research. User grounding is also a baseline behavior for every skill: know who the work affects when that knowledge matters, but do not make traditional UX process the price of completing simple work.
 
 ## Skill anatomy
 
@@ -71,6 +76,16 @@ Most skills should contain:
 7. **Examples** — a few natural-language triggers.
 
 Do not add sections merely to match a template when they do not improve the skill.
+
+## User-centered does not mean process-heavy
+
+Traditional UX methods are tools, not gates.
+
+A skill should ask about users, research, personas, journeys, or validation only when the missing answer could materially change the problem, design direction, risk, or decision. If the task is simple and the relevant user/task context is already established, proceed.
+
+Do not create personas merely because personas are a familiar UX artifact. Use them when research supports meaningful behavioral, goal, or context differences and the artifact helps the team make decisions. Otherwise a short user-group description, scenario, or direct evidence may be enough.
+
+When research would help, recommend the smallest method that answers the actual question. More research is not automatically better UX.
 
 ## Use contrast examples when judgment is hard to encode
 
@@ -100,6 +115,7 @@ Good contrast examples often teach the model to do less:
 - do not create an ADR for a trivial change;
 - do not manufacture critique findings when the work is sound;
 - do not turn weak evidence into a confident product claim;
+- do not create personas or research plans when the task does not need them;
 - do not dump every theoretical state or dependency when only a few matter.
 
 ## Shared output behavior
@@ -121,7 +137,7 @@ Inspect available project context before questioning the user. If information is
 
 ## Do not over-orchestrate
 
-A skill may use reasoning associated with another capability, but avoid turning every task into a fixed workflow. A quick content review should not demand a problem statement, research plan, ADR, and handoff package.
+A skill may use reasoning associated with another capability, but avoid turning every task into a fixed workflow. A quick content review should not demand a problem statement, persona, research plan, ADR, and handoff package.
 
 ## Evaluate routing and usefulness
 
@@ -129,6 +145,7 @@ A skill should be tested against:
 
 - phrases that should activate it;
 - adjacent phrases that should activate a different skill;
+- simple tasks where it should stay out of the way;
 - incomplete context;
 - conflicting context;
 - attempts to make the agent invent evidence;
