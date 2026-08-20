@@ -4,7 +4,7 @@ description: Decide whether a UX need should reuse, compose, extend, or create a
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # System Fit
@@ -50,6 +50,16 @@ Consider whether the gap is documentation rather than implementation.
 Lead with the classification and recommendation. Name the existing assets involved, the gap, and any design-system contribution that should accompany the feature.
 
 If the system source cannot be verified, make the recommendation conditional rather than pretending certainty.
+
+## Contrast example
+
+Bad:
+> Create a new `SearchableStationPicker` component because the design system does not have that exact component today.
+
+Good:
+> **Compose.** The existing Autocomplete handles station search and the existing selection/chip pattern handles chosen values. The gap is not a new component; it is documented behavior for no-results, async loading, and keyboard selection. Add those states to the existing pattern before proposing a new system component.
+
+Why: the good response identifies the actual missing behavior and prefers composition over component proliferation.
 
 ## Examples
 
