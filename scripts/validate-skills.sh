@@ -6,7 +6,8 @@ if command -v skills-ref >/dev/null 2>&1; then
 elif command -v agentskills >/dev/null 2>&1; then
   validator="agentskills"
 else
-  echo "Agent Skills validator not found. Install with: python -m pip install skills-ref" >&2
+  echo "Agent Skills reference validator not found." >&2
+  echo "Install it from the official agentskills/agentskills skills-ref directory, then run this script again." >&2
   exit 1
 fi
 
