@@ -15,6 +15,12 @@ Good triggers:
 
 Weak triggers are artifact names alone, such as "create a persona" or "make a journey map." Those often describe outputs rather than practitioner problems.
 
+## Keep invocation invisible
+
+With the exception of `setup-ux`, skills should be designed for model-driven activation from normal language. Do not require the designer to memorize the skill name.
+
+`setup-ux` is intentionally explicit because it initializes or refreshes project context. Its metadata records `ux-skills-invocation: "explicit"`; this is descriptive portable metadata, not a vendor-specific requirement.
+
 ## Frontmatter
 
 Use valid Agent Skills metadata.
