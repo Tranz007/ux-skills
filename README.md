@@ -1,5 +1,7 @@
 # UX Skills
 
+[![Validate Agent Skills](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml)
+
 **Your AI design partner should know UX.**
 
 UX Skills is an open-source set of Agent Skills for working designers. It does not try to replace the designer or turn the agent into an autonomous design machine. It helps the designer think better, catch what they missed, work with the real design system, and carry UX intent into engineering.
@@ -39,6 +41,18 @@ After that, work normally.
 > Write the PR description.
 
 You do not need to know which skill handles the request. The agent chooses the relevant UX Skills automatically.
+
+## See it in action
+
+A designer says:
+
+> We need an AI trip recommendation feature. Help me design it.
+
+A useful UX Skills response starts by testing the premise instead of immediately drawing the feature:
+
+> Before designing it, two assumptions matter. I don't see evidence yet that travelers need recommendations rather than better comparison. And recommendations will only be useful if the system knows enough about the traveler to make a defensible suggestion. Define what data it uses, how confidence is shown, and what happens when it's wrong before choosing the interaction. If the design system already has recommendation or card patterns, reuse those first.
+
+The agent may quietly use framing, challenge, design-system fit, evidence discipline, and Clear behavior to produce that answer. The designer does not orchestrate those capabilities.
 
 ## What happens in the background
 
@@ -110,21 +124,6 @@ Only `setup-ux` is something a designer needs to deliberately run. The rest are 
 **Keep it human.** Lead with the useful point. Use only the structure the reader needs. No corporate AI sludge, canned praise, repetitive summaries, or documentation theater.
 
 **Don't make engineering guess.** Preserve behavior, states, accessibility intent, and rationale when work crosses the design/engineering boundary.
-
-## Example
-
-A designer says:
-
-> We need a searchable station selector. Help me design it.
-
-UX Skills may quietly determine that:
-
-- the request needs a little framing before solutioning;
-- the current design system already has `MultiSelect` and autocomplete patterns;
-- the proposed behavior has missing loading, no-results, keyboard, and async states;
-- extending the existing pattern has a smaller ripple than creating a new component.
-
-The designer gets the useful answer. They do not have to orchestrate four skills themselves.
 
 ## Portable by design
 
