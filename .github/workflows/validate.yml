@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'skills/**'
+      - 'tests/routing-cases.jsonl'
       - 'scripts/validate-skills.sh'
       - '.github/workflows/validate.yml'
   push:
@@ -11,6 +12,7 @@ on:
       - main
     paths:
       - 'skills/**'
+      - 'tests/routing-cases.jsonl'
       - 'scripts/validate-skills.sh'
       - '.github/workflows/validate.yml'
 
@@ -18,7 +20,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout UX Skills
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -26,8 +28,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install Agent Skills validator
-        run: python -m pip install --upgrade skills-ref
+      - name: Install official Agent Skills reference validator
+        run: |
+          git clone --depth 1 https://github.com/agentskills/agentskills.git /tmp/agentskills
+          python -m pip install /tmp/agentskills/skills-ref
 
       - name: Validate all skills
         run: bash scripts/validate-skills.sh
