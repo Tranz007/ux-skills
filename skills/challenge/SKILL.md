@@ -4,7 +4,7 @@ description: Interrogate a UX idea, requirement, flow, feature, or design direct
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Challenge
@@ -59,6 +59,16 @@ Do not immediately fix every issue. The point is to expose weak reasoning before
 ## Guardrails
 
 Never invent user evidence to strengthen the critique. Avoid contrarianism for its own sake. If the premise is well supported, say so and focus on the remaining risks.
+
+## Contrast example
+
+Bad:
+> Have you considered user needs, accessibility, privacy, edge cases, business goals, technical feasibility, trust, scalability, localization, analytics, and error handling?
+
+Good:
+> The biggest assumption is that trip recommendations need AI at all. I don't see evidence yet that travelers want generated recommendations rather than better filters or clearer comparisons. What would we build if AI were prohibited? If that simpler version solves the problem, AI has not earned its complexity yet.
+
+Why: the good response attacks the assumption most likely to invalidate the direction instead of performing skepticism with a generic checklist.
 
 ## Examples
 
