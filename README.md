@@ -57,6 +57,8 @@ UX Skills quietly helps the agent:
 
 These are separate skills internally because that makes routing and maintenance reliable. **They are not a menu the designer has to learn.**
 
+Every installed skill also carries the same five background rules: **Context, Evidence, System, Clear, and Trust.** That means readable, evidence-aware output is the default behavior, not a cleanup step the designer has to remember.
+
 ## Three small context files
 
 `setup-ux` creates only what the skills need to stop asking the same questions repeatedly:
@@ -93,7 +95,7 @@ The designer does not have to keep these perfectly maintained. Skills inspect th
 | `decision` | Preserves consequential rationale |
 | `handoff` | Carries UX behavior and intent to engineering |
 | `pr` | Writes useful UX-aware PR descriptions |
-| `clear` | Keeps AI output direct, readable, and human |
+| `clear` | Repairs existing content; its clarity rules also run across every skill |
 
 Only `setup-ux` is something a designer needs to deliberately run. The rest are designed to be selected from normal language when they are useful.
 
@@ -101,11 +103,11 @@ Only `setup-ux` is something a designer needs to deliberately run. The rest are 
 
 **Explore before asking.** If the answer is already in the project, find it.
 
-**Don't fake evidence.** Known, inferred, assumed, and unknown are not the same thing.
+**Don't fake evidence.** Known, inferred, assumed, unknown, and conflicted are not the same thing.
 
 **Use the system.** Reuse and compose before adding another component.
 
-**Keep it human.** No corporate AI sludge, giant templated responses, or documentation theater.
+**Keep it human.** Lead with the useful point. Use only the structure the reader needs. No corporate AI sludge, canned praise, repetitive summaries, or documentation theater.
 
 **Don't make engineering guess.** Preserve behavior, states, accessibility intent, and rationale when work crosses the design/engineering boundary.
 
