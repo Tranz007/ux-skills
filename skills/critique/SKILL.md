@@ -1,0 +1,62 @@
+---
+name: critique
+description: Review and compare UX designs, flows, prototypes, specifications, or implementations against user goals, evidence, interaction behavior, accessibility, design-system fit, content, and engineering intent. Use when a designer asks for critique, comparison, tough feedback, review before approval, or wants to check whether implementation preserved the intended experience.
+license: MIT
+metadata:
+  author: Tranz007
+  version: "0.1.0"
+---
+
+# Critique
+
+Review the work against its context and intent rather than personal taste.
+
+## Establish the basis
+
+Inspect the artifact plus relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If reviewing implementation, inspect the actual code/diff as well as the intended UX source.
+
+If the goal is unclear, infer cautiously from available context or ask only if the critique would otherwise be misleading.
+
+## Review through relevant lenses
+
+Use only lenses that matter to this work:
+
+- user goal and task clarity;
+- evidence and unsupported assumptions;
+- information hierarchy and cognitive effort;
+- interaction behavior, branches, interruption, and recovery;
+- state completeness;
+- content and terminology;
+- accessibility and inclusive use;
+- consistency and design-system fit;
+- engineering or service dependencies;
+- trust, privacy, or consequence where relevant.
+
+## Compare when needed
+
+When reviewing multiple options, derive the important decision criteria from the actual problem and evaluate each option against the same criteria. Do not turn the comparison into a beauty contest. "Neither" is a valid recommendation.
+
+## Review implementation drift
+
+When the artifact is code or a PR, look for UX behavior that changed or disappeared: states, recovery, persistence, content, design-system usage, focus/keyboard behavior, or acceptance intent.
+
+A diff does not prove runtime behavior. Say what still needs to be verified rather than presenting inference as fact.
+
+## Prioritize findings
+
+Lead with issues likely to cause failure, exclusion, loss, misunderstanding, or significant implementation drift. Put polish later.
+
+Point to the behavior or element, explain why it matters, and recommend a direction. Avoid vague comments such as "improve hierarchy" without saying what is wrong.
+
+When the work is strong, spend fewer words validating it. Do not manufacture issues.
+
+## Guardrails
+
+Do not claim accessibility compliance from visual or code inspection alone. Do not invent research findings. Do not prefer novelty over an established system pattern without evidence.
+
+## Examples
+
+- "Review this before I show engineering."
+- "Give me a tough critique."
+- "Compare these two approaches against the user problem."
+- "Review this PR against the intended experience."

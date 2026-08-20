@@ -1,0 +1,51 @@
+---
+name: pr
+description: Create a high-quality pull request description for UX-related implementation that explains why the change exists, what behavior changed, design-system usage, states, accessibility, testing, risks, and what reviewers should inspect. Use when design or design-engineering work is ready to become a PR.
+license: MIT
+metadata:
+  author: Tranz007
+  version: "0.1.0"
+---
+
+# PR
+
+Make the pull request understandable to an engineer who was not in the design conversation.
+
+## Inspect before writing
+
+Read the actual diff or changed files when available, the relevant design/handoff/contract, decision records, design-system context, and the repository's PR template.
+
+Describe what the code actually changes. Do not copy a design intention into the PR as though it has already been implemented.
+
+## Write for review
+
+A useful PR description normally answers:
+
+- Why does this change exist?
+- What user-visible or system behavior changed?
+- Which existing components or patterns are reused, extended, or added?
+- Which important states are covered?
+- What accessibility behavior is relevant?
+- What was tested or verified?
+- What remains intentionally out of scope?
+- What should reviewers pay particular attention to?
+
+Include links to authoritative design, decision, ticket, or contract artifacts when available.
+
+Do not force empty sections into the PR template.
+
+## Make review easier
+
+Call out risky transitions, async behavior, new shared patterns, migration impact, unresolved constraints, or places where implementation intentionally differs from the initial design.
+
+Avoid vague descriptions such as "updates UI" or enormous chronological change logs.
+
+## Repository actions
+
+If the user asks to open a PR and tools permit it, inspect the branch/diff and repository state first. Opening, updating, merging, requesting reviewers, or otherwise mutating a PR requires the user's authorization for that action. Never merge merely because the description is complete.
+
+## Examples
+
+- "Write the PR description for this UX change."
+- "Create a PR engineers can actually review."
+- "Explain this design-engineering change in the PR."

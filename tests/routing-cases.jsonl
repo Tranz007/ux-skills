@@ -1,0 +1,34 @@
+{"utterance":"Set up UX Skills for this repo.","expected":"setup-ux"}
+{"utterance":"Learn our design system and engineering stack before we start.","expected":"setup-ux"}
+{"utterance":"Refresh your UX context for this project.","expected":"setup-ux"}
+{"utterance":"The business says we need saved travelers. What problem are we actually solving?","expected":"frame"}
+{"utterance":"Turn this vague feature request into a real UX problem.","expected":"frame"}
+{"utterance":"Challenge this before I start designing.","expected":"challenge"}
+{"utterance":"Tear apart our idea for AI recommendations.","expected":"challenge"}
+{"utterance":"What assumptions are hiding inside this requirement?","expected":"challenge"}
+{"utterance":"What am I missing?","expected":"blindspots"}
+{"utterance":"Who or what have we completely forgotten about?","expected":"blindspots"}
+{"utterance":"What states are missing from this component?","expected":"state-sweep"}
+{"utterance":"Engineering wants to know what happens when the API times out.","expected":"state-sweep"}
+{"utterance":"Give me a tough critique of this flow.","expected":"critique"}
+{"utterance":"Review this design before I show it to engineering.","expected":"critique"}
+{"utterance":"Compare these two approaches against the user problem.","expected":"critique"}
+{"utterance":"Review this implementation PR against the intended experience.","expected":"critique"}
+{"utterance":"Check this flow for accessibility issues.","expected":"accessibility"}
+{"utterance":"What does engineering need to implement here for keyboard and screen readers?","expected":"accessibility"}
+{"utterance":"These error messages feel useless. Review the UX copy.","expected":"content"}
+{"utterance":"Make these labels clearer and consistent with our product terminology.","expected":"content"}
+{"utterance":"Does this really need a new component?","expected":"system-fit"}
+{"utterance":"Can we compose this from components we already have?","expected":"system-fit"}
+{"utterance":"If we change this date picker, what else moves?","expected":"ripple"}
+{"utterance":"What else could this shared error-pattern change affect?","expected":"ripple"}
+{"utterance":"Does this decision deserve an ADR?","expected":"decision"}
+{"utterance":"Record why we extended the component instead of creating a new one.","expected":"decision"}
+{"utterance":"Why was this pattern chosen in the first place?","expected":"decision"}
+{"utterance":"Get this ready for engineering.","expected":"handoff"}
+{"utterance":"Write the behavior so engineering and QA can test it.","expected":"handoff"}
+{"utterance":"Break this into buildable engineering work without losing the UX intent.","expected":"handoff"}
+{"utterance":"Write a PR description engineers can actually review.","expected":"pr"}
+{"utterance":"Explain the UX changes clearly in this pull request.","expected":"pr"}
+{"utterance":"This handoff sounds like AI. Make it readable.","expected":"clear"}
+{"utterance":"Rewrite this research summary so it sounds like a human practitioner without changing the evidence strength.","expected":"clear"}
