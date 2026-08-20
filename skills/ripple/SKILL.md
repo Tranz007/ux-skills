@@ -4,7 +4,7 @@ description: Trace what else a UX, flow, component, content, or design-system ch
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Ripple
@@ -46,6 +46,16 @@ Separate confirmed impact from possible impact that still needs verification.
 Tell the designer whether the change looks contained, shared, cross-journey, or foundational. Then name the few downstream effects that actually matter and why.
 
 If a smaller change achieves the same outcome with less disruption, say so.
+
+## Contrast example
+
+Bad:
+> This change could affect accessibility, responsive design, analytics, documentation, engineering, support, and other user journeys. Review all dependencies before proceeding.
+
+Good:
+> **Shared ripple.** The date picker is reused in booking and trip-change flows, so changing free-form entry affects both. Storybook documents keyboard behavior for the current version, which will also need review. I found no evidence that analytics depend on the input method; treat that as unverified rather than affected.
+
+Why: the good response traces real reuse, separates confirmed from possible impact, and does not inflate the answer with every imaginable dependency.
 
 ## Examples
 
