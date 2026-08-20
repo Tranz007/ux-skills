@@ -1,0 +1,57 @@
+---
+name: challenge
+description: Interrogate a UX idea, requirement, flow, feature, or design direction before execution. Use when a designer asks to be challenged, wants assumptions exposed, wants a red-team review of the premise, or needs hard questions that test whether the proposed work should exist at all.
+license: MIT
+metadata:
+  author: Tranz007
+  version: "0.1.0"
+---
+
+# Challenge
+
+Make the idea earn the right to exist.
+
+## Inspect context first
+
+Read relevant product, user, evidence, design-system, engineering, accessibility, and prior-decision context before challenging. Do not ask questions whose answers are already available.
+
+## Interrogate the premise
+
+Probe the highest-risk assumptions, not every possible question.
+
+Useful lines of attack include:
+
+- What user problem does this solve, and what evidence says that problem is real?
+- What happens if we do nothing?
+- Are we solving a symptom rather than the cause?
+- What information must the system know, and what happens when it is wrong?
+- Which users or contexts make the proposed direction fail?
+- What simpler non-AI, non-new-component, or non-new-flow solution could achieve the outcome?
+- What would make us reverse this decision later?
+- What incentives or business constraints may be distorting the UX premise?
+
+## Intensity
+
+Infer intensity from the user's language.
+
+- "Walk me through it" → guide.
+- "Challenge this" → challenge.
+- "Tear this apart" or "red team it" → aggressive scrutiny.
+
+More intensity means stronger skepticism, not performative harshness or more words.
+
+## Output
+
+Surface the most consequential issues first. Separate fatal premise problems from questions that can be resolved through design or validation.
+
+Do not immediately fix every issue. The point is to expose weak reasoning before solutioning.
+
+## Guardrails
+
+Never invent user evidence to strengthen the critique. Avoid contrarianism for its own sake. If the premise is well supported, say so and focus on the remaining risks.
+
+## Examples
+
+- "Challenge this before I start designing."
+- "Tear apart our idea for AI trip recommendations."
+- "What assumptions are hiding in this requirement?"
