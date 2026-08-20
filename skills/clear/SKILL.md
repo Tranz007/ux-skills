@@ -1,17 +1,31 @@
 ---
 name: clear
-description: Rewrite UX, product, research, handoff, ticket, or engineering-facing content so it reads like a capable human practitioner wrote it. Use to remove AI slop, reduce reading effort, preserve meaning and uncertainty, improve information hierarchy, and adapt detail to designers, engineers, stakeholders, executives, or research participants.
+description: Rewrite UX, product, research, handoff, ticket, or engineering-facing content so it reads like a capable human practitioner wrote it. Use when generated or existing content is bloated, robotic, unclear, over-structured, audience-blind, or sounds like AI while preserving meaning, evidence strength, and uncertainty.
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.0"
+  version: "0.1.1"
+  ux-skills-role: "shared-behavior-and-rewrite"
 ---
 
 # Clear
 
 Design the communication for the reader.
 
-This is broader than "sound human." Preserve meaning while removing the patterns that make generated work harder to trust or read.
+Clear has two jobs:
+
+1. When this skill is invoked, rewrite existing material so it is easier to understand and act on.
+2. The core Clear rules are embedded in every UX Skill so generated UX work starts readable instead of needing cleanup later.
+
+## Always
+
+- **Context** — inspect what is already known before asking the user to repeat it.
+- **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
+- **System** — prefer established product language, components, patterns, and rules before inventing new ones.
+- **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
+- **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+
+Do not recite these rules to the user unless one of them materially affects the answer.
 
 ## Determine the reader and job
 
@@ -30,7 +44,7 @@ Use terminology and communication constraints from `.ux/CONTEXT.md` when present
 Fix things such as:
 
 - generic openings and conclusions;
-- excessive headings or bullets;
+- excessive headings, bullets, or nested structure;
 - forced groups of three;
 - bolding used as decoration;
 - repetitive restatement;
@@ -42,7 +56,8 @@ Fix things such as:
 - unnecessary hedging or certainty;
 - dense sentences carrying multiple decisions;
 - UX or technical jargon that does not help the reader;
-- explanations experienced readers do not need.
+- explanations experienced readers do not need;
+- summaries that merely repeat what was already said.
 
 Do not add fake informality, slang, jokes, or personality merely to avoid sounding like AI.
 
@@ -56,20 +71,28 @@ If the source is unclear or contradictory, keep that uncertainty visible rather 
 
 For designers, emphasize problem, evidence, alternatives, uncertainty, and design consequence.
 
-For engineers, emphasize behavior, states, components, constraints, dependencies, and acceptance criteria.
+For engineers, emphasize behavior, states, components, constraints, dependencies, acceptance criteria, and what needs review.
 
 For stakeholders or executives, emphasize decision, impact, evidence, risk, and what is needed next.
 
-For research participants, remove internal language and avoid leading phrasing.
+For research participants, remove internal language, reduce cognitive burden, and avoid leading phrasing.
 
 ## Apply information design
 
-Do not merely rewrite sentences. Reorder information so the useful point arrives first. Delete material the reader does not need. Use structure only when it reduces effort.
+Do not merely rewrite sentences. Reorder information so the useful point arrives first. Delete material the reader does not need. Group related ideas. Use structure only when it reduces effort.
 
-Before finishing, ask whether an experienced practitioner would recognize generic AI patterns in the result. If so, simplify again.
+Before finishing, ask:
+
+- Can anything be removed without losing meaning?
+- Is the most important point easy to find?
+- Did I accidentally turn uncertainty into confidence?
+- Does this sound like a practitioner communicating with another human rather than a generated document?
+
+If not, simplify again.
 
 ## Examples
 
 - "Make this handoff easier for engineering to read."
 - "This research summary sounds like AI. Fix it."
 - "Make this executive-ready without changing the evidence."
+- "Clean this up without turning it into corporate copy."
