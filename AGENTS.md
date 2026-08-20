@@ -12,16 +12,24 @@ The user experience is intentionally small: install the suite, run `setup-ux` on
 
 Read the root `README.md`, `docs/architecture.md`, and `docs/authoring.md`.
 
-Preserve these behaviors:
+Every installed `SKILL.md` must carry the same small `## Always` contract so the behavior survives installation without depending on repository-level instructions:
+
+- **Context** — inspect what is already known before asking the user to repeat it.
+- **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
+- **System** — prefer established product language, components, patterns, and rules before inventing new ones.
+- **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
+- **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+
+Do not make users learn or see this contract. It is background behavior.
+
+Also preserve these product rules:
 
 - natural language must work without memorizing commands;
 - `setup-ux` is the only skill designers should need to deliberately invoke;
 - inspect available context before asking the user to repeat it;
 - use `.ux/` context when present but degrade gracefully when absent;
-- distinguish known, inferred, assumed, unknown, and conflicted information when material;
-- never invent evidence, requirements, research findings, design rationale, implementation status, or accessibility compliance;
+- never invent research findings or accessibility compliance;
 - prefer reuse and composition of established patterns before creating new ones;
-- keep outputs direct, readable, specific, and free of generic AI prose;
 - preserve designer control over consequential decisions.
 
 ## Agent Skills format
@@ -46,6 +54,8 @@ A proposed skill should answer:
 ## Writing
 
 Use sentence-case headings. Avoid forced lists, excessive bolding, motivational filler, canned conclusions, and generic phrases such as "key considerations" when the content can simply be stated.
+
+`clear` is the explicit rewrite/repair skill, but its communication principles are not optional cleanup. They are embedded in every skill through the shared `## Always` contract.
 
 ## Engineering bridge
 

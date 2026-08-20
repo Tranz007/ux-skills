@@ -32,22 +32,43 @@ description: Find missing UI and service states such as loading, empty, partial,
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 ```
 
 The description is routing metadata. Include both what the skill does and when ordinary language should activate it.
+
+## Shared behavior is part of every skill
+
+Repository-level instructions are not guaranteed to travel with an installed skill. For portability, every `SKILL.md` includes the same compact `## Always` section:
+
+```markdown
+## Always
+
+- **Context** — inspect what is already known before asking the user to repeat it.
+- **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
+- **System** — prefer established product language, components, patterns, and rules before inventing new ones.
+- **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
+- **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+
+Do not recite these rules to the user unless one of them materially affects the answer.
+```
+
+Keep this section identical across skills unless the project deliberately changes the shared contract. `scripts/validate-skills.sh` enforces its presence.
+
+`clear` remains a normal skill for rewriting existing material, but Clear is also a baseline behavior for every other skill. The goal is to produce readable work the first time rather than clean up AI prose afterward.
 
 ## Skill anatomy
 
 Most skills should contain:
 
 1. **Purpose** — the practitioner problem.
-2. **Start with context** — what to inspect before asking questions.
-3. **Method** — the reasoning sequence.
-4. **Output** — what useful result to produce.
-5. **Guardrails** — what not to invent or overreach on.
-6. **Examples** — a few natural-language triggers.
+2. **Always** — the shared UX behavior contract.
+3. **Start with context** — what to inspect before asking questions.
+4. **Method** — the reasoning sequence.
+5. **Output** — what useful result to produce.
+6. **Guardrails** — what not to invent or overreach on.
+7. **Examples** — a few natural-language triggers.
 
 Do not add sections merely to match a template when they do not improve the skill.
 
