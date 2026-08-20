@@ -1,0 +1,55 @@
+name: Validate Agent Skills
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'scripts/validate-skills.sh'
+      - '.github/workflows/validate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'skills/**'
+      - 'scripts/validate-skills.sh'
+      - '.github/workflows/validate.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Agent Skills validator
+        run: python -m pip install --upgrade skills-ref
+
+      - name: Validate all skills
+        run: bash scripts/validate-skills.sh
+
+      - name: Validate routing corpus JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('tests/routing-cases.jsonl')
+          seen = 0
+          for line_no, line in enumerate(path.read_text().splitlines(), 1):
+              if not line.strip():
+                  continue
+              row = json.loads(line)
+              assert row.get('utterance'), f'line {line_no}: missing utterance'
+              assert row.get('expected'), f'line {line_no}: missing expected skill'
+              assert Path('skills', row['expected'], 'SKILL.md').exists(), (
+                  f"line {line_no}: unknown expected skill {row['expected']}"
+              )
+              seen += 1
+          assert seen > 0, 'routing corpus is empty'
+          print(f'Validated {seen} routing cases.')
+          PY
