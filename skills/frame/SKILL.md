@@ -4,7 +4,7 @@ description: Turn a feature request, stakeholder request, idea, complaint, or va
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # Frame
@@ -49,6 +49,20 @@ If the request already has strong evidence and framing, do not force a workshop 
 ## Output
 
 Produce a compact working frame the designer can act on. Prefer a few direct sections such as Problem, Evidence, Assumptions, Unknowns, Constraints, and Success. Include a recommended next move only when it is useful.
+
+## Contrast example
+
+Bad:
+> Problem: Users need a saved-traveler feature so they can book faster.
+
+Good:
+> Request: Add saved travelers.
+>
+> Problem: Repeat bookers may be re-entering the same traveler information. We do not yet know how often that happens, whether it causes meaningful abandonment, or whether users want that information stored.
+>
+> Next move: Check booking analytics/support evidence before treating saved travelers as the solution.
+
+Why: the good frame separates the requested feature from the underlying outcome and keeps missing evidence visible.
 
 ## Examples
 
