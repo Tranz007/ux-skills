@@ -2,7 +2,13 @@
 
 All notable changes to UX Skills will be documented here.
 
-## 0.1.1 — Unreleased
+## 0.1.2 — Unreleased
+
+- added concise bad/good/why contrast examples to the skills where judgment is easiest to misread: `clear`, `challenge`, `frame`, `critique`, `system-fit`, `ripple`, `decision`, `handoff`, `pr`, and `state-sweep`;
+- kept examples intentionally selective so skill files stay compact and easy to scan;
+- added authoring guidance for using contrast examples to teach restraint, specificity, evidence discipline, system reuse, and audience-aware communication.
+
+## 0.1.1
 
 - strengthened `clear` as both an explicit rewrite skill and a baseline communication behavior;
 - embedded the same Context, Evidence, System, Clear, and Trust contract in every installed skill so it survives installation without relying on repository-level instructions;
