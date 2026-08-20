@@ -2,7 +2,13 @@
 
 All notable changes to UX Skills will be documented here.
 
-## 0.1.0 — Unreleased
+## 0.1.1 — Unreleased
+
+- strengthened `clear` as both an explicit rewrite skill and a baseline communication behavior;
+- embedded the same Context, Evidence, System, Clear, and Trust contract in every installed skill so it survives installation without relying on repository-level instructions;
+- added validation that rejects skills missing the shared behavior contract.
+
+## 0.1.0
 
 Initial open-source foundation:
 
