@@ -1,11 +1,11 @@
 ---
 name: setup-ux
-description: Set up UX Skills for a project by learning the product, design system, engineering environment, accessibility expectations, terminology, and existing decisions. Run this once when adopting UX Skills or again when the project changes materially.
-disable-model-invocation: true
+description: Set up or refresh UX Skills for a project by learning the product, design system, engineering environment, accessibility expectations, terminology, and existing decisions. Use only when the user explicitly asks to set up, initialize, connect, learn, or refresh UX Skills/project context; do not activate during ordinary UX work.
 license: MIT
 metadata:
   author: Tranz007
   version: "0.1.0"
+  ux-skills-invocation: "explicit"
 ---
 
 # Setup UX
