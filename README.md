@@ -6,8 +6,10 @@ UX Skills is an open-source set of Agent Skills for working designers. It does n
 
 ## Install it
 
+From your project folder:
+
 ```bash
-npx skills@latest add Tranz007/ux-skills
+npx skills add Tranz007/ux-skills --all
 ```
 
 Then run once:
