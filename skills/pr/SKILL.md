@@ -4,7 +4,7 @@ description: Create a high-quality pull request description for UX-related imple
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 
 # PR
@@ -53,6 +53,20 @@ Avoid vague descriptions such as "updates UI" or enormous chronological change l
 ## Repository actions
 
 If the user asks to open a PR and tools permit it, inspect the branch/diff and repository state first. Opening, updating, merging, requesting reviewers, or otherwise mutating a PR requires the user's authorization for that action. Never merge merely because the description is complete.
+
+## Contrast example
+
+Bad:
+> Updates the account recovery UI to match the new designs. Also fixes some accessibility issues and error states.
+
+Good:
+> **Why:** Users could become stranded when verification failed during account recovery.
+>
+> **Changed:** Failed verification now preserves the entered code, shows the existing Alert error pattern, and moves focus to the error summary. No new design-system components were added.
+>
+> **Review:** Please verify the API-error mapping and focus behavior. Expired-code recovery is intentionally out of scope for this PR.
+
+Why: the good description gives engineering the reason, implemented behavior, system impact, review focus, and scope without narrating every file change.
 
 ## Examples
 
