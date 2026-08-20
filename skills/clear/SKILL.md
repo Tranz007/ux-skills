@@ -4,7 +4,7 @@ description: Rewrite UX, product, research, handoff, ticket, or engineering-faci
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
   ux-skills-role: "shared-behavior-and-rewrite"
 ---
 
@@ -89,6 +89,28 @@ Before finishing, ask:
 - Does this sound like a practitioner communicating with another human rather than a generated document?
 
 If not, simplify again.
+
+## Contrast examples
+
+### Research summary
+
+Bad:
+> The research clearly demonstrates that users strongly prefer a more intuitive and streamlined booking experience, highlighting a significant opportunity to improve overall satisfaction.
+
+Good:
+> Three of five participants missed the fare-change warning before checkout. That suggests the warning is easy to overlook; it does not establish that the entire booking flow needs redesigning.
+
+Why: the good version is specific, preserves the strength of the evidence, and avoids turning a small finding into a broad claim.
+
+### Engineering handoff
+
+Bad:
+> This enhancement creates a seamless recovery experience with improved usability and accessibility across all error states.
+
+Good:
+> If verification fails, keep the entered code, show the inline error, and move focus to the error summary. The expired-code state is still unresolved and should not be inferred by engineering.
+
+Why: the good version tells the reader what changed, what must happen, and what is still unknown without promotional language.
 
 ## Examples
 
