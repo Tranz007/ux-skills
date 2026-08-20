@@ -4,13 +4,23 @@ description: Set up or refresh UX Skills for a project by learning the product, 
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.0"
+  version: "0.1.1"
   ux-skills-invocation: "explicit"
 ---
 
 # Setup UX
 
 Learn the project before asking the designer to configure it.
+
+## Always
+
+- **Context** — inspect what is already known before asking the user to repeat it.
+- **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
+- **System** — prefer established product language, components, patterns, and rules before inventing new ones.
+- **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
+- **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+
+Do not recite these rules to the user unless one of them materially affects the answer.
 
 ## Explore first
 
