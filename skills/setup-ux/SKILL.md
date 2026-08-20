@@ -1,6 +1,7 @@
 ---
 name: setup-ux
-description: Discover a project's product, users, design system, engineering environment, accessibility rules, research sources, workflow, terminology, and communication preferences, then create or refresh a lightweight .ux context layer. Use when setting up UX Skills in a repo or when project context has gone stale.
+description: Set up UX Skills for a project by learning the product, design system, engineering environment, accessibility expectations, terminology, and existing decisions. Run this once when adopting UX Skills or again when the project changes materially.
+disable-model-invocation: true
 license: MIT
 metadata:
   author: Tranz007
@@ -9,70 +10,45 @@ metadata:
 
 # Setup UX
 
-Build useful project context with the least possible user effort.
+Learn the project before asking the designer to configure it.
 
-## Explore before asking
+## Explore first
 
-Inspect what is available first. Depending on access, look for:
+Inspect whatever is available: README and product docs, package files, Storybook, components, tokens, design-system docs, Figma or other connected design sources, accessibility guidance, research, issue/PR templates, and existing decisions.
 
-- `AGENTS.md`, `CLAUDE.md`, README files, architecture and product docs;
-- package manifests and framework configuration;
-- component libraries, Storybook, design tokens, CSS variables, theme files, and design-system packages;
-- Figma or other design sources available through connected tools;
-- accessibility tooling, standards, tests, and documented policies;
-- research, analytics, customer feedback, product requirements, issue templates, and decision records;
-- Git remotes, issue trackers, PR templates, release workflows, and test conventions;
-- domain terms used repeatedly in code and documentation.
+Do not ask the user for information you can discover reliably.
 
-Do not ask the user to identify information you can discover reliably.
+## Keep the context small
 
-## Build the context layer
-
-Create or refresh:
+Create or refresh only:
 
 ```text
 .ux/
-├── PRODUCT.md
-├── USERS.md
+├── CONTEXT.md
 ├── DESIGN-SYSTEM.md
-├── ENGINEERING.md
-├── ACCESSIBILITY.md
-├── RESEARCH.md
-├── WORKFLOW.md
-├── GLOSSARY.md
-├── VOICE.md
 └── DECISIONS.md
 ```
 
-Keep files short and source-aware. Link to authoritative material instead of duplicating large documents.
+### CONTEXT.md
 
-Do not silently overwrite verified human decisions. When refreshing, preserve confirmed information and call out meaningful conflicts.
+Keep the useful basics together: what the product does, who it serves, important journeys, evidence/research locations, engineering stack and workflow, accessibility expectations, terminology, and material unknowns.
 
-## Handle uncertainty
+### DESIGN-SYSTEM.md
 
-Missing information is not a setup failure. Record material gaps as unknown and continue.
+Record the actual design-system sources and rules: Storybook, Figma, component packages, tokens, source-of-truth order, reuse expectations, and contribution path.
 
-Use these distinctions when useful:
+### DECISIONS.md
 
-- KNOWN — supported by evidence or an authoritative source;
-- INFERRED — strongly suggested by available information;
-- ASSUMED — treated as true for now without enough evidence;
-- UNKNOWN — unresolved;
-- CONFLICTED — credible sources disagree.
+Keep a lightweight index of consequential UX or architecture decisions. If the project already has ADRs or another decision system, point to that instead of creating a competing one.
 
-Ask only questions whose answers materially improve future UX work. Lead each question with the best recommendation or discovered default so the user can answer quickly.
+## Missing information is allowed
 
-## Finish with immediate value
+Do not block setup because something is unknown. Ask only when an answer would materially change future recommendations.
 
-Summarize what the system now understands, not just that setup succeeded.
+Never turn assumptions into facts. When it matters, distinguish what is known, inferred, assumed, unknown, or conflicted.
 
-Include a compact context-health view such as Product, Users, Design System, Accessibility, Research, Engineering, Terminology, and Workflow. Use qualitative levels like strong, partial, weak, or unknown; do not imply mathematical precision.
+## Finish usefully
 
-Call out one to three useful discoveries or risks if present.
+Tell the designer what you learned, the few important gaps you found, and whether the design system is sufficiently understood to start working.
 
-## Examples
-
-- "Set up UX Skills for this project."
-- "Learn this repo before we start designing."
-- "Refresh your UX context."
-- "Connect our design system."
+Then stop. Do not turn setup into an audit.
