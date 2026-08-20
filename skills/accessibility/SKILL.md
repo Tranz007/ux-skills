@@ -13,11 +13,11 @@ Make accessibility part of the interaction design rather than a compliance pass 
 
 ## Establish the actual target
 
-Read `.ux/ACCESSIBILITY.md`, organizational policy, project standards, design-system accessibility documentation, and relevant platform requirements. If the project does not define a target, state what standard you are using as a review baseline rather than inventing a requirement.
+Read accessibility expectations from `.ux/CONTEXT.md` when present, then inspect organizational policy, project standards, design-system accessibility documentation, and relevant platform requirements. If the project does not define a target, state what standard you are using as a review baseline rather than inventing a requirement.
 
 ## Inspect behavior, not just appearance
 
-Review the dimensions relevant to the work, including:
+Review only the dimensions relevant to the work, including:
 
 - semantic structure and programmatic relationships;
 - accessible names, labels, instructions, status, and errors;
