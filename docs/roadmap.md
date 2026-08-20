@@ -1,47 +1,37 @@
 # Roadmap
 
-UX Skills should grow because real practitioners expose missing capabilities, not because a large catalog looks impressive.
+UX Skills should grow because real designers expose a missing capability, not because a large catalog looks impressive.
 
-## v0.1 — foundation
+## v0.1 — make the basic experience excellent
 
-- portable Agent Skills structure;
-- natural-language UX router;
-- `.ux/` project context model;
-- core evidence, clarity, trust, and design-system behaviors;
-- practitioner skills for framing, challenge, flows, blind spots, states, critique, content, comparison, and validation;
-- engineering bridge for handoff, behavioral contracts, tickets, PR descriptions, and UX-focused PR review;
-- starter evaluation fixtures;
-- open-source contribution guidance.
+- install the suite;
+- run `setup-ux` once;
+- let normal designer language activate the right capability;
+- understand the team's real design system;
+- challenge assumptions and catch blind spots/states/accessibility issues;
+- keep AI output clear and human;
+- preserve UX intent through handoff and PR descriptions;
+- validate skill format and routing examples.
 
-## v0.2 — evaluate in real work
+## v0.2 — prove it with real designers
 
-- routing evals across multiple agent products and models;
-- output-quality evals for evidence integrity and readability;
-- sample projects for travel, commerce, SaaS, and public-sector workflows;
-- stronger design-system discovery patterns for Storybook, component packages, tokens, and design documentation;
-- setup refresh and context-health behavior;
-- lightweight decision-record templates.
-
-## v0.3 — adapters
-
-Explore optional adapters and references for common team environments without making them mandatory:
-
-- Figma and design-library context;
-- Storybook;
-- GitHub Issues and pull requests;
-- Jira / Linear / Azure DevOps ticket conventions;
-- accessibility test tooling;
-- analytics and research repositories.
+- test natural-language activation across multiple skills-compatible agents;
+- improve descriptions when the wrong skill activates or nothing activates;
+- add realistic examples from different product types;
+- improve design-system discovery for Storybook, Figma, packages, and tokens;
+- tighten `setup-ux` based on what users actually have to answer manually.
 
 ## Later
 
-Potential capabilities should earn their place through real use. Candidates include research synthesis, workshop facilitation, service blueprint reasoning, experiment critique, localization review, design-system governance, and richer implementation verification.
+Add another skill only when it solves a repeatable practitioner problem that the current suite cannot handle cleanly.
+
+Potential areas include research synthesis, workshop support, service design, localization, and deeper design-system governance. None of these are commitments.
 
 ## What we will not optimize for
 
 - the largest skill count;
-- agent-generated visual novelty;
+- a UX Skills app or platform;
+- mandatory ceremony;
 - replacing research with synthetic certainty;
-- owning a team's entire product process;
-- vendor lock-in;
-- mandatory ceremony.
+- agent-generated visual novelty for its own sake;
+- vendor lock-in.
