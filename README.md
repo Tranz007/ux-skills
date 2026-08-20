@@ -2,193 +2,142 @@
 
 **Your AI design partner should know UX.**
 
-UX Skills is an open-source suite of Agent Skills for working designers, researchers, design-system teams, and design engineers.
+UX Skills is an open-source set of Agent Skills for working designers. It does not try to replace the designer or turn the agent into an autonomous design machine. It helps the designer think better, catch what they missed, work with the real design system, and carry UX intent into engineering.
 
-Most design skills teach an agent how to generate UI. UX Skills takes a different position: **the human owns the design. The skills help the human understand the problem, challenge assumptions, find blind spots, use the design system, preserve decisions, validate behavior, and carry design intent through engineering.**
-
-## Try it
+## Install it
 
 ```bash
 npx skills@latest add Tranz007/ux-skills
 ```
 
-Then talk normally:
+Then run once:
 
-> What am I missing?
->
+```text
+setup-ux
+```
+
+UX Skills learns the project, the design system, the engineering environment, accessibility expectations, terminology, and important existing decisions.
+
+**That's the setup.**
+
+After that, work normally.
+
 > Challenge this idea.
+>
+> What am I missing?
 >
 > Does this need a new component?
 >
-> Review this flow before I show it to engineering.
+> Review this before I show engineering.
 >
-> Get this ready for a PR.
+> If I change this, what else moves?
 >
-> I just inherited this project. Help me understand it.
+> Get this ready for engineering.
+>
+> Write the PR description.
 
-You can invoke individual skills explicitly, but **commands are shortcuts, not the interface**. Natural language is the interface.
+You do not need to know which skill handles the request. The agent chooses the relevant UX Skills automatically.
 
-## Start here
+## What happens in the background
 
-Run `setup-ux` once in a project. It explores before it asks questions and creates a lightweight `.ux/` context layer from what it can actually discover.
+UX Skills quietly helps the agent:
+
+- challenge weak assumptions instead of immediately designing them;
+- separate evidence from guesses;
+- catch missing states, edge conditions, and accessibility concerns;
+- reuse the existing design system before inventing new components;
+- see downstream effects of a UX change;
+- improve UI content and terminology;
+- keep explanations and documentation clear and human;
+- preserve consequential design decisions;
+- create engineering handoffs that explain behavior, not just pixels;
+- write PR descriptions that engineers can actually review.
+
+These are separate skills internally because that makes routing and maintenance reliable. **They are not a menu the designer has to learn.**
+
+## Three small context files
+
+`setup-ux` creates only what the skills need to stop asking the same questions repeatedly:
 
 ```text
 .ux/
-├── PRODUCT.md
-├── USERS.md
+├── CONTEXT.md
 ├── DESIGN-SYSTEM.md
-├── ENGINEERING.md
-├── ACCESSIBILITY.md
-├── RESEARCH.md
-├── WORKFLOW.md
-├── GLOSSARY.md
-├── VOICE.md
 └── DECISIONS.md
 ```
 
-Missing information is allowed. UX Skills records it as unknown and asks only when it matters. Configuration happens through use.
+`CONTEXT.md` holds the useful project basics: product, users, research/evidence locations, engineering environment, accessibility expectations, terminology, and important constraints.
 
-## The core behavior
+`DESIGN-SYSTEM.md` tells UX Skills where the real system lives and how the team expects it to be used: Figma, Storybook, packages, tokens, source-of-truth rules, and contribution expectations.
 
-Every skill follows five rules:
+`DECISIONS.md` preserves the consequential decisions people otherwise forget. If the team already uses ADRs or another decision system, UX Skills uses that instead.
 
-**Context** — understand the product and environment before recommending work.
+The designer does not have to keep these perfectly maintained. Skills inspect the actual project when they can and update their understanding as they work.
 
-**Evidence** — distinguish known, inferred, assumed, unknown, and conflicted information.
+## The skills under the hood
 
-**System** — reuse and compose existing patterns before proposing new ones.
-
-**Clear** — write like a practitioner, not a generated document.
-
-**Trust** — never invent evidence, rationale, requirements, implementation status, or confidence.
-
-## The skills
-
-### Start something
-
-| Skill | Use it for |
+| Skill | What it helps with |
 |---|---|
-| `ux-partner` | Natural-language router and design partner for ambiguous UX work |
-| `setup-ux` | Learn a project, design system, engineering stack, and working rules |
-| `orient` | Understand an inherited product, repo, design system, or project |
-| `frame` | Turn a request or idea into the actual problem, outcome, constraints, and unknowns |
-| `challenge` | Make an idea earn the right to exist before execution begins |
-| `evidence` | Separate what is known from what is assumed and identify evidence gaps |
+| `setup-ux` | Learns the project once |
+| `frame` | Finds the real problem behind a request |
+| `challenge` | Pushes on assumptions and weak premises |
+| `blindspots` | Finds important things nobody considered |
+| `state-sweep` | Finds missing states and recovery behavior |
+| `critique` | Reviews UX against the actual context, not taste |
+| `accessibility` | Makes accessible behavior part of the design |
+| `content` | Improves UI language and terminology |
+| `system-fit` | Reuse, compose, extend, or create? |
+| `ripple` | Shows what else moves when something changes |
+| `decision` | Preserves consequential rationale |
+| `handoff` | Carries UX behavior and intent to engineering |
+| `pr` | Writes useful UX-aware PR descriptions |
+| `clear` | Keeps AI output direct, readable, and human |
 
-### Explore and review
+Only `setup-ux` is something a designer needs to deliberately run. The rest are designed to be selected from normal language when they are useful.
 
-| Skill | Use it for |
-|---|---|
-| `flow` | Work through journeys, branches, interruptions, and recovery paths |
-| `blindspots` | Find people, conditions, contexts, and consequences nobody has considered |
-| `state-sweep` | Find missing loading, empty, error, partial, permission, timeout, and recovery states |
-| `critique` | Review work across user, product, accessibility, system, and engineering perspectives |
-| `compare` | Compare alternatives against explicit decision criteria rather than aesthetics |
-| `content` | Review UX copy, terminology, timing, cognitive load, errors, and recovery language |
-| `test-it` | Turn decisions, risks, and assumptions into a focused validation plan |
+## A few rules every skill follows
 
-### Work with the system
+**Explore before asking.** If the answer is already in the project, find it.
 
-| Skill | Use it for |
-|---|---|
-| `system-fit` | Decide whether to reuse, compose, extend, or create a component/pattern |
-| `impact` | Trace the downstream effects of a design or system change |
-| `why` | Reconstruct why something appears to have been designed this way |
-| `decision` | Capture consequential design or architecture decisions without documenting trivia |
+**Don't fake evidence.** Known, inferred, assumed, and unknown are not the same thing.
 
-### Bridge to engineering
+**Use the system.** Reuse and compose before adding another component.
 
-| Skill | Use it for |
-|---|---|
-| `handoff` | Create an implementation-ready design handoff focused on behavior and intent |
-| `contract` | Express behavior as a precise design-to-engineering contract |
-| `ship` | Check completeness and package approved work for engineering |
-| `tickets` | Break design intent into buildable engineering work without losing UX context |
-| `pr` | Create a PR description engineers can actually review |
-| `pr-review` | Review implementation changes against design intent, states, accessibility, and system rules |
+**Keep it human.** No corporate AI sludge, giant templated responses, or documentation theater.
 
-### Communication
+**Don't make engineering guess.** Preserve behavior, states, accessibility intent, and rationale when work crosses the design/engineering boundary.
 
-| Skill | Use it for |
-|---|---|
-| `clear` | Remove AI slop, reduce reading effort, preserve meaning, and tailor communication to the reader |
+## Example
 
-## The UX context model
+A designer says:
 
-UX Skills never requires a perfect configuration file before it can help. If `.ux/` exists, skills read the relevant context. If it does not, they inspect what is available and proceed carefully.
+> We need a searchable station selector. Help me design it.
 
-Information is treated as:
+UX Skills may quietly determine that:
 
-- **Known** — supported by evidence or an authoritative source.
-- **Inferred** — strongly suggested by available information.
-- **Assumed** — currently treated as true without sufficient evidence.
-- **Unknown** — not enough information yet.
-- **Conflicted** — credible sources disagree.
+- the request needs a little framing before solutioning;
+- the current design system already has `MultiSelect` and autocomplete patterns;
+- the proposed behavior has missing loading, no-results, keyboard, and async states;
+- extending the existing pattern has a smaller ripple than creating a new component.
 
-These labels are surfaced only when the distinction matters. The system should not turn every response into a taxonomy.
+The designer gets the useful answer. They do not have to orchestrate four skills themselves.
 
-See [`docs/context.md`](docs/context.md) for the full context contract.
+## Portable by design
 
-## Design to merged PR
-
-UX Skills is intentionally not a frontend-generation framework. It protects design intent as work crosses into implementation.
-
-```text
-request / idea
-     ↓
-frame → evidence → challenge
-     ↓
-flow → system-fit → state-sweep
-     ↓
-critique → test-it → decision
-     ↓
-handoff → contract → tickets
-     ↓
-implementation
-     ↓
-pr → pr-review
-```
-
-Use only what the work needs. The router should not run a ceremony because a diagram says it can.
-
-## Why this exists
-
-A design loses information every time it changes hands. Research becomes a summary. A decision becomes a Figma comment. Behavior becomes a screenshot. Engineering gets a ticket. Six months later nobody remembers why anything works the way it does.
-
-UX Skills is designed to keep the reasoning attached to the work without making the designer become a documentation machine.
-
-## Portability
-
-UX Skills follows the open [Agent Skills](https://agentskills.io/) format. Each skill is a directory containing a `SKILL.md` with portable metadata and instructions. Vendor-specific features are optional rather than required.
-
-Validate a skill with the reference implementation:
-
-```bash
-skills-ref validate ./skills/frame
-```
+UX Skills follows the open [Agent Skills](https://agentskills.io/) format. It is intended to work across agents that support the format rather than being tied to one model or one design tool.
 
 ## Principles
 
-1. If a designer has to learn how UX Skills works before it can help, we failed.
-2. Explore before asking questions.
+1. If the designer has to learn the system before it can help them, we failed.
+2. The human owns the design.
 3. Ask only when the answer changes the work.
-4. Commands are shortcuts, not the interface.
-5. Do not replace practitioner judgment with process theater.
-6. Prefer evidence over confidence.
-7. Prefer the existing system before creating a new one.
-8. Preserve behavior and rationale, not pixels alone.
-9. Make the output easier to read than the input.
-10. Stay with the design from the first question to the merged PR.
-
-## Project status
-
-UX Skills is early and intentionally opinionated. The first goal is a small, high-quality foundation that can be evaluated against real design work before the catalog grows.
-
-See [`docs/roadmap.md`](docs/roadmap.md) for what is next.
+4. Prefer evidence over confidence.
+5. Prefer the existing system over unnecessary invention.
+6. Keep the reasoning attached to the design all the way into engineering.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md). New skills should solve a real practitioner problem, be composable, route well from natural language, and avoid duplicating capabilities already in the suite.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md). The goal is not the largest skill library. Add something only when it solves a real, repeatable practitioner problem without making the UX of UX Skills harder.
 
 ## License
 
