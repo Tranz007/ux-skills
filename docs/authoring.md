@@ -32,7 +32,7 @@ description: Find missing UI and service states such as loading, empty, partial,
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.2"
 ---
 ```
 
@@ -71,6 +71,36 @@ Most skills should contain:
 7. **Examples** — a few natural-language triggers.
 
 Do not add sections merely to match a template when they do not improve the skill.
+
+## Use contrast examples when judgment is hard to encode
+
+A short bad/good pair can teach the model more reliably than another paragraph of rules. Use contrast examples when the skill depends on judgment such as restraint, evidence discipline, specificity, system reuse, or audience-aware communication.
+
+Keep them small:
+
+```markdown
+## Contrast example
+
+Bad:
+> A plausible but weak response.
+
+Good:
+> The behavior you actually want.
+
+Why: one sentence explaining the decision rule the model should learn.
+```
+
+The `Why` matters. It teaches the principle instead of encouraging the model to copy the exact wording.
+
+Do not add contrast examples mechanically to every skill. Skip them when the procedure is already concrete, as with setup/discovery work. Prefer one strong pair over a catalog of examples. A skill should stay easy to scan.
+
+Good contrast examples often teach the model to do less:
+
+- do not invent a component when composition is enough;
+- do not create an ADR for a trivial change;
+- do not manufacture critique findings when the work is sound;
+- do not turn weak evidence into a confident product claim;
+- do not dump every theoretical state or dependency when only a few matter.
 
 ## Shared output behavior
 
