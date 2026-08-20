@@ -2,7 +2,15 @@
 
 All notable changes to UX Skills will be documented here.
 
-## 0.1.2 — Unreleased
+## 0.1.3 — Unreleased
+
+- added `user-grounding` to answer who the work is for, what is actually known about them, whether personas are useful, and what research is worth doing;
+- added `User` to the shared behavior contract across every skill;
+- added an explicit anti-ceremony guardrail so simple work does not trigger unnecessary research, personas, discovery, or long questionnaires;
+- strengthened `setup-ux` to capture useful user/task evidence without manufacturing personas;
+- added routing and authoring guidance for user grounding and non-activation on ordinary well-understood tasks.
+
+## 0.1.2
 
 - added concise bad/good/why contrast examples to the skills where judgment is easiest to misread: `clear`, `challenge`, `frame`, `critique`, `system-fit`, `ripple`, `decision`, `handoff`, `pr`, and `state-sweep`;
 - kept examples intentionally selective so skill files stay compact and easy to scan;
@@ -11,7 +19,7 @@ All notable changes to UX Skills will be documented here.
 ## 0.1.1
 
 - strengthened `clear` as both an explicit rewrite skill and a baseline communication behavior;
-- embedded the same Context, Evidence, System, Clear, and Trust contract in every installed skill so it survives installation without relying on repository-level instructions;
+- embedded the Context, Evidence, System, Clear, and Trust contract in every installed skill so it survives installation without relying on repository-level instructions;
 - added validation that rejects skills missing the shared behavior contract.
 
 ## 0.1.0
