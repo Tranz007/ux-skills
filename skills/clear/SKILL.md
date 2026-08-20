@@ -11,7 +11,7 @@ metadata:
 
 Design the communication for the reader.
 
-This skill is broader than "sound human." Preserve meaning while reducing the patterns that make generated work harder to trust or read.
+This is broader than "sound human." Preserve meaning while removing the patterns that make generated work harder to trust or read.
 
 ## Determine the reader and job
 
@@ -20,14 +20,14 @@ Before rewriting, infer or identify:
 - who needs to read this;
 - what they need to understand;
 - what they need to decide or do;
-- which details are necessary for that job;
+- which details are necessary;
 - what uncertainty or evidence status must survive the rewrite.
 
-Use `.ux/VOICE.md` and `GLOSSARY.md` when present.
+Use terminology and communication constraints from `.ux/CONTEXT.md` when present.
 
 ## Remove generated-document habits
 
-Look for and fix:
+Fix things such as:
 
 - generic openings and conclusions;
 - excessive headings or bullets;
@@ -36,29 +36,19 @@ Look for and fix:
 - repetitive restatement;
 - corporate filler and inflated claims;
 - vague abstractions where a concrete noun or behavior exists;
-- canned praise, reassurance, or conversational niceties;
+- canned praise, reassurance, or chatbot niceties;
 - passive constructions that hide who acts;
 - uniform sentence rhythm;
 - unnecessary hedging or certainty;
 - dense sentences carrying multiple decisions;
 - UX or technical jargon that does not help the reader;
-- explanations of obvious things that experienced readers do not need.
+- explanations experienced readers do not need.
 
-Do not add fake informality, slang, jokes, or personality simply to avoid sounding like AI.
+Do not add fake informality, slang, jokes, or personality merely to avoid sounding like AI.
 
 ## Preserve what matters
 
-Never improve readability by changing:
-
-- facts;
-- evidence strength;
-- requirements;
-- scope;
-- unresolved decisions;
-- user quotes;
-- technical behavior;
-- accessibility expectations;
-- legal or policy meaning.
+Never improve readability by changing facts, evidence strength, requirements, scope, unresolved decisions, user quotes, technical behavior, accessibility expectations, or legal/policy meaning.
 
 If the source is unclear or contradictory, keep that uncertainty visible rather than smoothing it away.
 
@@ -68,22 +58,13 @@ For designers, emphasize problem, evidence, alternatives, uncertainty, and desig
 
 For engineers, emphasize behavior, states, components, constraints, dependencies, and acceptance criteria.
 
-For stakeholders or executives, emphasize decision, user/business impact, evidence, risk, and what is needed next.
+For stakeholders or executives, emphasize decision, impact, evidence, risk, and what is needed next.
 
 For research participants, remove internal language and avoid leading phrasing.
 
 ## Apply information design
 
-Do not merely rewrite sentences. Reorder information so the most useful point arrives first. Delete material the reader does not need. Use structure only when it reduces effort.
-
-Ask internally:
-
-- What can be removed?
-- What deserves emphasis?
-- What needs to be scanned?
-- What should be explained only if the reader asks?
-
-## Self-audit
+Do not merely rewrite sentences. Reorder information so the useful point arrives first. Delete material the reader does not need. Use structure only when it reduces effort.
 
 Before finishing, ask whether an experienced practitioner would recognize generic AI patterns in the result. If so, simplify again.
 
@@ -91,5 +72,4 @@ Before finishing, ask whether an experienced practitioner would recognize generi
 
 - "Make this handoff easier for engineering to read."
 - "This research summary sounds like AI. Fix it."
-- "Unslop this without losing the uncertainty."
-- "Make this executive-ready without corporate bullshit."
+- "Make this executive-ready without changing the evidence."
