@@ -2,7 +2,7 @@
 
 All notable changes to UX Skills will be documented here.
 
-## 0.1.3 — Unreleased
+## 0.1.3 — 2026-08-20
 
 - added `user-grounding` to answer who the work is for, what is actually known about them, whether personas are useful, and what research is worth doing;
 - added `User` to the shared behavior contract across every skill;
