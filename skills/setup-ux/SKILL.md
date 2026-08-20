@@ -1,10 +1,10 @@
 ---
 name: setup-ux
-description: Set up or refresh UX Skills for a project by learning the product, design system, engineering environment, accessibility expectations, terminology, and existing decisions. Use only when the user explicitly asks to set up, initialize, connect, learn, or refresh UX Skills/project context; do not activate during ordinary UX work.
+description: Set up or refresh UX Skills for a project by learning the product, users and research evidence, design system, engineering environment, accessibility expectations, terminology, and existing decisions. Use only when the user explicitly asks to set up, initialize, connect, learn, or refresh UX Skills/project context; do not activate during ordinary UX work.
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.1"
+  version: "0.1.3"
   ux-skills-invocation: "explicit"
 ---
 
@@ -15,6 +15,7 @@ Learn the project before asking the designer to configure it.
 ## Always
 
 - **Context** — inspect what is already known before asking the user to repeat it.
+- **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
@@ -22,9 +23,11 @@ Learn the project before asking the designer to configure it.
 
 Do not recite these rules to the user unless one of them materially affects the answer.
 
+Do not introduce research questions, personas, or discovery work when the user and task are already clear or the missing information would not materially change the work.
+
 ## Explore first
 
-Inspect whatever is available: README and product docs, package files, Storybook, components, tokens, design-system docs, Figma or other connected design sources, accessibility guidance, research, issue/PR templates, and existing decisions.
+Inspect whatever is available: README and product docs, existing user research, analytics and support evidence, package files, Storybook, components, tokens, design-system docs, Figma or other connected design sources, accessibility guidance, issue/PR templates, and existing decisions.
 
 Do not ask the user for information you can discover reliably.
 
@@ -41,7 +44,9 @@ Create or refresh only:
 
 ### CONTEXT.md
 
-Keep the useful basics together: what the product does, who it serves, important journeys, evidence/research locations, engineering stack and workflow, accessibility expectations, terminology, and material unknowns.
+Keep the useful basics together: what the product does; who it serves; user goals, tasks, and meaningful groups when supported by evidence; important journeys; evidence/research locations; engineering stack and workflow; accessibility expectations; terminology; and material unknowns.
+
+Do not manufacture personas or demographic detail simply to fill the file. If the project has useful, research-backed personas or behavioral segments, reference them. Otherwise describe only what is actually known about the people and tasks that matter.
 
 ### DESIGN-SYSTEM.md
 
@@ -59,6 +64,6 @@ Never turn assumptions into facts. When it matters, distinguish what is known, i
 
 ## Finish usefully
 
-Tell the designer what you learned, the few important gaps you found, and whether the design system is sufficiently understood to start working.
+Tell the designer what you learned, the few important gaps you found, and whether the user context and design system are sufficiently understood to start working.
 
-Then stop. Do not turn setup into an audit.
+Then stop. Do not turn setup into an audit or a discovery workshop.

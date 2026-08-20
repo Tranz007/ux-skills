@@ -4,7 +4,7 @@ description: Rewrite UX, product, research, handoff, ticket, or engineering-faci
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.2"
+  version: "0.1.3"
   ux-skills-role: "shared-behavior-and-rewrite"
 ---
 
@@ -20,12 +20,15 @@ Clear has two jobs:
 ## Always
 
 - **Context** — inspect what is already known before asking the user to repeat it.
+- **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
 - **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
 
 Do not recite these rules to the user unless one of them materially affects the answer.
+
+Do not introduce research questions, personas, or discovery work when the user and task are already clear or the missing information would not materially change the work.
 
 ## Determine the reader and job
 

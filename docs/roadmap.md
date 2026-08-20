@@ -7,6 +7,7 @@ UX Skills should grow because real designers expose a missing capability, not be
 - install the suite;
 - run `setup-ux` once;
 - let normal designer language activate the right capability;
+- understand who the work serves and what user evidence actually exists without forcing UX ceremony;
 - understand the team's real design system;
 - challenge assumptions and catch blind spots/states/accessibility issues;
 - keep AI output clear and human;
@@ -16,6 +17,7 @@ UX Skills should grow because real designers expose a missing capability, not be
 ## v0.2 — prove it with real designers
 
 - test natural-language activation across multiple skills-compatible agents;
+- verify that `user-grounding` activates when user uncertainty matters and stays out of the way when it does not;
 - improve descriptions when the wrong skill activates or nothing activates;
 - add realistic examples from different product types;
 - improve design-system discovery for Storybook, Figma, packages, and tokens;
@@ -25,13 +27,14 @@ UX Skills should grow because real designers expose a missing capability, not be
 
 Add another skill only when it solves a repeatable practitioner problem that the current suite cannot handle cleanly.
 
-Potential areas include research synthesis, workshop support, service design, localization, and deeper design-system governance. None of these are commitments.
+Potential areas include deeper research synthesis, workshop support, service design, localization, and deeper design-system governance. None of these are commitments.
 
 ## What we will not optimize for
 
 - the largest skill count;
 - a UX Skills app or platform;
 - mandatory ceremony;
+- personas or research artifacts without a decision need;
 - replacing research with synthetic certainty;
 - agent-generated visual novelty for its own sake;
 - vendor lock-in.

@@ -13,6 +13,8 @@ A good UX Skill should:
 - solve a repeatable practitioner problem;
 - work through natural language as well as explicit invocation;
 - use project context instead of repeatedly asking for known information;
+- ground user claims in actual evidence without inventing personas or needs;
+- stay out of the way when extra research or UX process would not change the work;
 - distinguish evidence from inference and assumption;
 - preserve uncertainty rather than inventing confidence;
 - produce concise, readable output;
@@ -27,6 +29,6 @@ Keep the frontmatter description specific enough that an agent can route to the 
 
 ## Pull requests
 
-Explain the practitioner problem, what changed, how you tested the skill, and any behavior or context contract that changed.
+Explain the practitioner problem, what changed, how you tested the skill, and any behavior or context contract that changed. For new skills, also explain when the skill should **not** activate so the suite does not add unnecessary process to simple work.
 
 By contributing, you agree that your contribution is licensed under the MIT License.

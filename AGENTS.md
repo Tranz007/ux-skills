@@ -15,6 +15,7 @@ Read the root `README.md`, `docs/architecture.md`, and `docs/authoring.md`.
 Every installed `SKILL.md` must carry the same small `## Always` contract so the behavior survives installation without depending on repository-level instructions:
 
 - **Context** — inspect what is already known before asking the user to repeat it.
+- **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
@@ -22,13 +23,16 @@ Every installed `SKILL.md` must carry the same small `## Always` contract so the
 
 Do not make users learn or see this contract. It is background behavior.
 
+Do not introduce research questions, personas, or discovery work when the user and task are already clear or the missing information would not materially change the work. User-centered does not mean process-heavy.
+
 Also preserve these product rules:
 
 - natural language must work without memorizing commands;
 - `setup-ux` is the only skill designers should need to deliberately invoke;
 - inspect available context before asking the user to repeat it;
 - use `.ux/` context when present but degrade gracefully when absent;
-- never invent research findings or accessibility compliance;
+- never invent research findings, user needs, personas, or accessibility compliance;
+- recommend user research only when it reduces an uncertainty that could materially change the work;
 - prefer reuse and composition of established patterns before creating new ones;
 - preserve designer control over consequential decisions.
 
@@ -50,6 +54,7 @@ A proposed skill should answer:
 4. What can it safely infer and what must remain unknown?
 5. What useful decision or output does it produce?
 6. Could an existing skill handle this without becoming confusing?
+7. What is the stop condition that keeps the skill from adding unnecessary UX process?
 
 ## Writing
 
