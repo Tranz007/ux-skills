@@ -37,12 +37,17 @@ for skill in skills/*/; do
     continue
   fi
 
-  for principle in Context Evidence System Clear Trust; do
+  for principle in Context User Evidence System Clear Trust; do
     if ! grep -q "\*\*${principle}\*\*" "$skill_file"; then
       echo "$skill_file is missing shared principle: $principle" >&2
       failed=$((failed + 1))
     fi
   done
+
+  if ! grep -q 'Do not introduce research questions, personas, or discovery work' "$skill_file"; then
+    echo "$skill_file is missing the anti-ceremony user-grounding guardrail." >&2
+    failed=$((failed + 1))
+  fi
 done
 
 if [[ $count -eq 0 ]]; then
