@@ -1,6 +1,12 @@
 {"utterance":"Set up UX Skills for this repo.","expected":"setup-ux"}
 {"utterance":"Learn our design system and engineering stack before we start.","expected":"setup-ux"}
 {"utterance":"Refresh your UX context for this project.","expected":"setup-ux"}
+{"utterance":"Who are we actually designing this for?","expected":"user-grounding"}
+{"utterance":"Do we know enough about these users to make this decision?","expected":"user-grounding"}
+{"utterance":"These personas feel made up. Are they actually useful?","expected":"user-grounding"}
+{"utterance":"What research do we actually need before designing this?","expected":"user-grounding"}
+{"utterance":"What does our existing research say about repeat bookers?","expected":"user-grounding"}
+{"utterance":"Do we really need personas for this small settings change?","expected":"user-grounding"}
 {"utterance":"The business says we need saved travelers. What problem are we actually solving?","expected":"frame"}
 {"utterance":"Turn this vague feature request into a real UX problem.","expected":"frame"}
 {"utterance":"Challenge this before I start designing.","expected":"challenge"}
@@ -17,6 +23,7 @@
 {"utterance":"Check this flow for accessibility issues.","expected":"accessibility"}
 {"utterance":"What does engineering need to implement here for keyboard and screen readers?","expected":"accessibility"}
 {"utterance":"These error messages feel useless. Review the UX copy.","expected":"content"}
+{"utterance":"Make this button label clearer.","expected":"content"}
 {"utterance":"Make these labels clearer and consistent with our product terminology.","expected":"content"}
 {"utterance":"Does this really need a new component?","expected":"system-fit"}
 {"utterance":"Can we compose this from components we already have?","expected":"system-fit"}
