@@ -95,6 +95,8 @@ Every installed skill also carries the same six background rules: **Context, Use
 
 The designer does not have to keep these perfectly maintained. Skills inspect the actual project when they can and update their understanding as they work.
 
+`.ux/` improves continuity, but it is not a prerequisite. Each installed skill remains useful on its own when project context or the rest of the suite is unavailable; it should inspect what it can and preserve the resulting uncertainty.
+
 ## The skills under the hood
 
 | Skill | What it helps with |

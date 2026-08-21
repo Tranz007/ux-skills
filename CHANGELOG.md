@@ -2,6 +2,14 @@
 
 All notable changes to UX Skills will be documented here.
 
+## Unreleased
+
+- added a model-agnostic routing runner so the routing corpus can measure activation against a chosen target agent;
+- made local shared-contract validation run even when the optional Agent Skills specification validator is unavailable;
+- strengthened provenance requirements for claims stored in `.ux/CONTEXT.md`;
+- require `critique` to surface an inferred goal before evaluating a design against it;
+- documented that individual installed skills remain useful without `.ux/` or the full suite.
+
 ## 0.1.3 — 2026-08-20
 
 - added `user-grounding` to answer who the work is for, what is actually known about them, whether personas are useful, and what research is worth doing;

@@ -10,6 +10,8 @@ Does ordinary designer language select the intended capability? Do adjacent skil
 
 Use `routing-cases.jsonl` as the starter corpus. Each row includes an utterance and expected primary skill.
 
+Run it against a target agent with `python scripts/evaluate-routing.py --command '<adapter command>'`. The adapter receives one JSON object per line on standard input and returns one JSON object per line containing `predicted`. See `python scripts/evaluate-routing.py --help` for the complete protocol. The repository does not prescribe a model; record the agent and model used with the result.
+
 ### User grounding
 
 Does the agent understand who the work affects and what is actually known about them when that information can change the design?

@@ -28,7 +28,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 Inspect the artifact plus relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If reviewing implementation, inspect the actual code/diff as well as the intended UX source.
 
-If the goal is unclear, infer cautiously from available context or ask only if the critique would otherwise be misleading.
+If the goal is unclear, state any cautious inference before critiquing against it, or ask only if the critique would otherwise be misleading.
 
 ## Review through relevant lenses
 

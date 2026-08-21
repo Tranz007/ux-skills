@@ -55,4 +55,6 @@ Only gaps that matter to current work.
 Record only consequential decisions, or point to the project's existing ADR/RFC location.
 ```
 
-When evidence status matters, use `KNOWN`, `INFERRED`, `ASSUMED`, `UNKNOWN`, or `CONFLICTED`. Do not tag ordinary statements unnecessarily.
+For claims about people, user behavior, research or analytics, policy or accessibility requirements, consequential decisions, and material unknowns, use `KNOWN`, `INFERRED`, `ASSUMED`, `UNKNOWN`, or `CONFLICTED`. Include a source or location for `KNOWN` claims when practical.
+
+Leave only observable product mechanics and stable pointers untagged. Do not write an unsupported claim as an ordinary statement simply because it would be cumbersome to tag.

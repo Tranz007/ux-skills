@@ -60,7 +60,7 @@ Keep a lightweight index of consequential UX or architecture decisions. If the p
 
 Do not block setup because something is unknown. Ask only when an answer would materially change future recommendations.
 
-Never turn assumptions into facts. When it matters, distinguish what is known, inferred, assumed, unknown, or conflicted.
+Never turn assumptions into facts. Label claims about people, evidence, requirements, decisions, and material unknowns as known, inferred, assumed, unknown, or conflicted; ordinary product mechanics do not need labels.
 
 ## Finish usefully
 

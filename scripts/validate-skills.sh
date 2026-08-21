@@ -6,9 +6,9 @@ if command -v skills-ref >/dev/null 2>&1; then
 elif command -v agentskills >/dev/null 2>&1; then
   validator="agentskills"
 else
-  echo "Agent Skills reference validator not found." >&2
-  echo "Install it from the official agentskills/agentskills skills-ref directory, then run this script again." >&2
-  exit 1
+  validator=""
+  echo "Warning: Agent Skills reference validator not found; skipping specification validation." >&2
+  echo "Install skills-ref or agentskills to include the specification check." >&2
 fi
 
 failed=0
@@ -21,7 +21,7 @@ for skill in skills/*/; do
 
   echo "Validating $skill"
 
-  if ! "$validator" validate "$skill"; then
+  if [[ -n "$validator" ]] && ! "$validator" validate "$skill"; then
     failed=$((failed + 1))
   fi
 
@@ -60,4 +60,8 @@ if [[ $failed -ne 0 ]]; then
   exit 1
 fi
 
-echo "All $count skills passed Agent Skills validation and the shared UX behavior contract."
+if [[ -n "$validator" ]]; then
+  echo "All $count skills passed Agent Skills validation and the shared UX behavior contract."
+else
+  echo "All $count skills passed the shared UX behavior contract."
+fi
