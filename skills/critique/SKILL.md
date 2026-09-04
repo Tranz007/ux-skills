@@ -4,7 +4,7 @@ description: Review and compare UX designs, flows, prototypes, specifications, o
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Critique
@@ -13,7 +13,7 @@ Review the work against its context and intent rather than personal taste.
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Establish the basis
 
-Inspect the artifact plus relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If reviewing implementation, inspect the actual code/diff as well as the intended UX source.
+Inspect the artifact plus the smallest relevant `.ux/` context, evidence, design-system patterns, accessibility rules, known constraints, and prior decisions. If reviewing implementation, inspect the actual code/diff as well as the intended UX source.
 
 If the goal is unclear, state any cautious inference before critiquing against it, or ask only if the critique would otherwise be misleading.
 
