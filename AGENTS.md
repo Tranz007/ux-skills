@@ -28,6 +28,7 @@ Every installed `SKILL.md` must carry the same small `## Always` contract so the
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
 - **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+- **Outcome** — for substantial multi-step work, keep intent active, use a small `.ux/STATE.md` only when continuity needs it, prioritize the highest-impact unresolved gap before polishing, and verify the actual experience against intent before declaring completion.
 
 Do not make users learn or see this contract. It is background behavior.
 
@@ -49,6 +50,32 @@ Also preserve these product rules:
 - recommend user research only when it reduces an uncertainty that could materially change the work;
 - prefer reuse and composition of established patterns before creating new ones;
 - preserve designer control over consequential decisions.
+
+## Long-horizon work
+
+Do not expose an agent-management methodology to the designer. The human should state the goal and work normally; the agent owns decomposition and continuity.
+
+For substantial work with multiple meaningful phases:
+
+1. Read the relevant `INTENT.md` and identify the actual outcome, not just the requested task list.
+2. Break the work into meaningful phases only when decomposition helps execution.
+3. Work the highest-impact unresolved gap before polishing already-adequate work.
+4. Re-check the current result against intent when a phase completes, progress stalls, or implementation choices materially change the experience.
+5. Before declaring completion, perform an outcome check: would the actual user experience now satisfy the intended outcome, core experience, constraints, and success criteria that matter to this work?
+
+A completed checklist does not prove the problem is solved. If every planned task is done but the outcome check fails, continue or surface the unresolved gap.
+
+Agents may use sub-agents, parallel work, or other execution machinery when the environment supports it, but UX Skills does not prescribe an agent topology, agent count, dashboard, or model-specific command. Parallelize only work that is sufficiently independent to benefit from it.
+
+Use `.ux/STATE.md` only when a long task is likely to lose continuity across phases, a long session, or multiple sessions. Keep it small and disposable. It may hold the current objective, current phase, completed work, highest-impact unresolved gap, risks or blockers, next action, and last intent check. Do not treat it as product truth, a roadmap, or another backlog. Delete or stop maintaining it when the work no longer needs it.
+
+## Intent changes
+
+Treat `.ux/INTENT.md` as stable, not frozen. Routine UI and implementation changes should not rewrite it.
+
+Existing intent is the default. Change it only when explicit human direction or authoritative evidence shows that intent itself changed. Make the smallest useful edit. A clarification may refine already-established meaning; a consequential change should preserve the decision or evidence that caused it in `DECISIONS.md` or the project's existing ADR/RFC system.
+
+Never rewrite intent to justify current implementation, remove an inconvenient constraint, or make completed work appear aligned after the fact. Agent inference alone does not override established intent.
 
 ## Agent Skills format
 
@@ -91,6 +118,8 @@ Keep ownership clear:
 - `CONTEXT.md` owns observable operating context, evidence locations, engineering, accessibility expectations, terminology, and stable project facts.
 - `DESIGN-SYSTEM.md` owns pointers and rules for the actual design system.
 - `DECISIONS.md` owns consequential decision records or pointers to an existing ADR/RFC system.
+
+`STATE.md`, when temporarily useful, is working memory rather than core context and should not be created during setup by default.
 
 Do not duplicate content across these files. Do not treat `.ux/` as a replacement for research repositories, requirements systems, design-system docs, or source code.
 

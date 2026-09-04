@@ -4,7 +4,7 @@ description: Set up or refresh UX Skills for a new or existing project by captur
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.2.0"
+  version: "0.2.1"
   ux-skills-invocation: "explicit"
 ---
 
@@ -20,6 +20,7 @@ Learn enough for future UX work to start from intent and evidence instead of gue
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
 - **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+- **Outcome** — for substantial multi-step work, keep intent active, use a small `.ux/STATE.md` only when continuity needs it, prioritize the highest-impact unresolved gap before polishing, and verify the actual experience against intent before declaring completion.
 
 Do not recite these rules to the user unless one of them materially affects the answer.
 
@@ -71,7 +72,7 @@ Create or refresh the smallest useful core:
 └── DECISIONS.md
 ```
 
-Read `references/context-contract.md` for ownership, templates, evidence status, migration, and when a project justifies splitting context into smaller files.
+Read `references/context-contract.md` for ownership, templates, evidence status, migration, intent updates, and when a project justifies splitting context into smaller files.
 
 ### INTENT.md
 
@@ -101,6 +102,8 @@ Split information into smaller files only when density, repeated use, or distinc
 
 Future skills should load `INTENT.md` when product purpose, outcome, scope, or success can change the answer, then load only the additional context relevant to the task. Do not treat the whole `.ux/` directory as mandatory context for every request.
 
+`.ux/STATE.md` is not part of setup and is not a fifth core context file. A future agent may create it only for substantial multi-step work when continuity would otherwise be lost. It is disposable working state, not durable product truth.
+
 ## Missing information is allowed
 
 Do not block setup because something is unknown. Ask only when an answer would materially change future recommendations.
@@ -109,7 +112,13 @@ Never turn assumptions into facts. Label claims about people, evidence, requirem
 
 ## Refresh intent carefully
 
-Do not rewrite `INTENT.md` for routine design changes. Update it when new evidence or a consequential decision changes why the product exists, who it is primarily for, the intended outcome, scope, non-goals, constraints, or definition of success.
+Treat `INTENT.md` as stable, not frozen. Existing intent is the default and should survive routine design and implementation work.
+
+Change it only when explicit human direction or authoritative evidence shows that the product's purpose, intended outcome, people, scope, non-goals, material constraints, or definition of success has actually changed. Make the smallest useful edit instead of regenerating the file.
+
+A small clarification can be refined in place when it makes an already-established intent more precise without changing its meaning. A consequential change should preserve the decision or evidence that caused it in `DECISIONS.md` or the project's existing ADR/RFC system.
+
+Never rewrite intent to rationalize the current implementation, remove an inconvenient constraint, or make completed work appear aligned after the fact. Agent inference alone does not override established intent.
 
 ## Finish usefully
 

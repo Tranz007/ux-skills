@@ -4,7 +4,7 @@ description: Find missing interface and service states such as loading, empty, p
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
 # State Sweep
@@ -19,6 +19,7 @@ Find behavior the happy-path design is hiding.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
 - **Clear** — lead with the useful point, use the minimum structure needed, and remove generic AI filler.
 - **Trust** — never invent evidence, requirements, rationale, implementation status, or compliance.
+- **Outcome** — for substantial multi-step work, keep intent active, use a small `.ux/STATE.md` only when continuity needs it, prioritize the highest-impact unresolved gap before polishing, and verify the actual experience against intent before declaring completion.
 
 Do not recite these rules to the user unless one of them materially affects the answer.
 

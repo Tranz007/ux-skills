@@ -12,6 +12,8 @@ Keep project context small, explicit, and useful. These files are memory aids fo
 
 `DECISIONS.md` owns **what consequential choices should persist**: a compact index or pointers to the project's existing ADR/RFC system.
 
+`STATE.md`, when temporarily useful, owns **where substantial work is now**: current objective, phase, meaningful completed work, highest-impact unresolved gap, active risks, next action, and last intent check. It is working memory, not durable project truth.
+
 Do not duplicate the same paragraph across files. Link or point to the authoritative location instead.
 
 ## INTENT.md
@@ -48,6 +50,16 @@ Only items that materially affect confidence or future decisions.
 ```
 
 Keep `INTENT.md` short enough to scan. It is not a PRD, roadmap, backlog, requirements catalog, or implementation plan.
+
+### Intent mutation rule
+
+Treat intent as stable, not frozen. Existing intent is the default.
+
+Change it only when explicit human direction or authoritative evidence shows that intent itself changed. Make the smallest useful edit instead of regenerating the file.
+
+A clarification may refine already-established meaning without changing the product direction. A consequential change should preserve the decision or evidence that caused it in `DECISIONS.md` or the project's existing ADR/RFC system.
+
+Never rewrite intent to fit the current implementation, remove an inconvenient constraint, or make completed work appear aligned after the fact. Agent inference alone does not override established intent.
 
 ## CONTEXT.md
 
@@ -103,6 +115,39 @@ Record only consequential decisions, or point to the project's existing ADR/RFC 
 ```
 
 Small decisions can remain inline. A larger decision can point to a dedicated record when its rationale, evidence, alternatives, or consequences need more room.
+
+## Optional STATE.md
+
+Do not create `STATE.md` during setup. It is not part of the four-file durable context layer.
+
+A future agent may create it only for substantial multi-step work when continuity would otherwise be at risk across phases, a long session, or multiple sessions.
+
+```markdown
+# Current state
+
+## Current objective
+The outcome the current work is trying to achieve.
+
+## Current phase
+Where the work is now.
+
+## Completed
+Meaningful completed work only.
+
+## Highest-impact unresolved gap
+The unfinished issue most likely to prevent the intended outcome.
+
+## Risks or blockers
+Active issues that can materially affect the work.
+
+## Next action
+The next highest-impact move.
+
+## Last intent check
+Whether the current result still aligns with relevant intent, plus any material drift.
+```
+
+Keep `STATE.md` disposable. It is not a roadmap, task archive, or substitute for `INTENT.md`. Stop maintaining or remove it when continuity no longer needs it.
 
 ## Evidence status
 

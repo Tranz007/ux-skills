@@ -66,7 +66,7 @@ flowchart TB
     J --> K[Ready to work normally]
 ```
 
-For a new project, setup is conversational rather than a fixed questionnaire. For an existing project, evidence is inspected before the designer is asked to explain anything.
+For a new project, setup is conversational rather than a fixed questionnaire. For an existing product, evidence is inspected before the designer is asked to explain anything.
 
 ## User-invoked vs model-invoked
 
@@ -87,7 +87,10 @@ Every skill should follow these rules:
 - never invent research, user needs, personas, requirements, rationale, implementation status, or accessibility compliance;
 - prefer existing components and patterns before adding new ones;
 - keep output direct, readable, and audience-appropriate;
-- preserve designer control over consequential decisions.
+- preserve designer control over consequential decisions;
+- for substantial multi-step work, keep intent active, use working state only when continuity needs it, prioritize the highest-impact unresolved gap before polishing, and verify the actual experience against intent before declaring completion.
+
+The final rule is deliberately conditional. It does not turn a copy edit, critique, or component question into a managed project.
 
 ## The small context layer
 
@@ -111,6 +114,8 @@ Every skill should follow these rules:
 
 These files prevent repeated explanation. They are not required to be complete and they are not another product-management or research-repository system.
 
+`INTENT.md` is stable, not frozen. Routine implementation work should not rewrite it. It changes only when explicit human direction or authoritative evidence shows that intent itself changed, and the agent should make the smallest useful edit rather than regenerating the file.
+
 ## Progressive context
 
 The core context can split only when a project genuinely needs more structure. A research-heavy project might eventually have `.ux/evidence/research.md`; a complex product might justify `.ux/users/tasks.md`. Empty folders and placeholder files are a smell.
@@ -129,6 +134,44 @@ flowchart LR
 ```
 
 Do not inject the entire `.ux/` directory into every task. Load the smallest combination of intent, project context, and expertise necessary to make a sound recommendation.
+
+## Long-horizon execution
+
+Large tasks create a different failure mode from ordinary UX work: the agent can continue making locally reasonable changes while losing the shape of the overall outcome.
+
+UX Skills handles that without exposing an orchestration framework to the designer.
+
+```mermaid
+flowchart LR
+    A[Human intent] --> B[Meaningful phase]
+    B --> C[Execute]
+    C --> D{Outcome still aligned?}
+    D -->|Yes| E{Substantial gap remains?}
+    D -->|No| F[Correct drift]
+    F --> B
+    E -->|Yes| G[Highest-impact unresolved gap]
+    G --> B
+    E -->|No| H[Outcome check]
+    H --> I[Done]
+```
+
+For substantial multi-step work, the agent should:
+
+1. read the relevant intent and identify the actual outcome;
+2. decompose into meaningful phases only when decomposition helps;
+3. work the highest-impact unresolved gap before polishing already-adequate work;
+4. re-check against intent when a phase completes, progress stalls, or implementation choices materially change the experience;
+5. perform an outcome check before declaring completion.
+
+The outcome check asks whether the **actual experience** now satisfies the relevant intended outcome, core experience, constraints, and success criteria. A completed checklist is evidence of activity, not proof that the problem is solved.
+
+Agents may use sub-agents, parallel execution, or model-specific tooling when useful, but UX Skills does not prescribe a manager/implementer topology, agent count, dashboard, or command syntax. That machinery is an implementation choice, not part of the designer's mental model.
+
+## Optional working state
+
+For a substantial task that may lose continuity across phases or sessions, the agent may temporarily maintain `.ux/STATE.md` with only the current objective, current phase, meaningful completed work, highest-impact unresolved gap, active risks or blockers, next action, and last intent check.
+
+`STATE.md` is not created by `setup-ux`, is not a fifth core context file, and is not durable product truth. It should disappear or stop being maintained when continuity no longer needs it.
 
 ## Skills under the surface
 
