@@ -2,6 +2,10 @@
 
 [![Validate Agent Skills](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml)
 
+<p align="center">
+  <img src="docs/images/ux-skills-hero.svg" alt="UX Skills — your UX thinking partner for the AI era" width="100%" />
+</p>
+
 **Your AI design partner should know UX.**
 
 UX Skills is an open-source set of Agent Skills for working designers. It does not try to replace the designer or turn the agent into an autonomous design machine. It helps the designer think better, catch what they missed, work with the real design system, and carry UX intent into engineering.
