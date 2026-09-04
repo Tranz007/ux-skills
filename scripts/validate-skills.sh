@@ -13,6 +13,7 @@ fi
 
 failed=0
 count=0
+expected_context='- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.'
 
 for skill in skills/*/; do
   [[ -d "$skill" ]] || continue
@@ -44,8 +45,21 @@ for skill in skills/*/; do
     fi
   done
 
+  if ! grep -Fqx -- "$expected_context" "$skill_file"; then
+    echo "$skill_file is missing the shared intent-aware Context rule." >&2
+    failed=$((failed + 1))
+  fi
+
   if ! grep -q 'Do not introduce research questions, personas, or discovery work' "$skill_file"; then
     echo "$skill_file is missing the anti-ceremony user-grounding guardrail." >&2
+    failed=$((failed + 1))
+  fi
+done
+
+setup_file="skills/setup-ux/SKILL.md"
+for setup_rule in '.ux/INTENT.md' 'New project: capture intent conversationally' 'Existing project: inspect before reconstructing intent' 'Use progressive context'; do
+  if ! grep -Fq -- "$setup_rule" "$setup_file"; then
+    echo "$setup_file is missing v0.2 setup behavior: $setup_rule" >&2
     failed=$((failed + 1))
   fi
 done
