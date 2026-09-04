@@ -4,7 +4,7 @@ description: Ground UX work in actual users and evidence when who the design is 
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # User Grounding
@@ -13,7 +13,7 @@ Answer two questions: **who is this for, and what do we actually know about them
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -34,7 +34,7 @@ Only dig deeper when uncertainty about the user could materially change the prob
 
 ## Inspect evidence before asking
 
-Look for existing research, interview notes, usability findings, analytics, support or sales evidence, field observations, prior decisions, product documentation, and meaningful behavioral segments.
+Look for the smallest relevant set of existing research, interview notes, usability findings, analytics, support or sales evidence, field observations, prior decisions, product documentation, and meaningful behavioral segments.
 
 Do not ask the designer to summarize research the agent can inspect directly.
 

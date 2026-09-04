@@ -4,9 +4,20 @@ All notable changes to UX Skills will be documented here.
 
 ## Unreleased
 
+Nothing yet.
+
+## 0.2.0 — 2026-09-04
+
+- added intent-first project context with `.ux/INTENT.md` as a small north-star artifact for why, intended outcome, people affected, core experience, scope, non-goals, material constraints, success, and uncertainty;
+- split `setup-ux` into adaptive greenfield and inspect-first existing-project paths without adding another user-facing setup skill;
+- added migration behavior that preserves the original three-file `.ux/` structure and adds intent without unnecessary context churn;
+- documented progressive project-context loading so skills read intent when it can change the answer and load only the additional context relevant to the current task;
+- documented progressive skill disclosure so compact `SKILL.md` files can route to deeper references only when those references are actually needed;
+- added Mermaid architecture and lifecycle diagrams plus a consolidated `docs/flows.md` visual reference;
+- added setup-specific evaluation cases and greenfield/existing-product example contexts;
 - added a model-agnostic routing runner so the routing corpus can measure activation against a chosen target agent;
 - made local shared-contract validation run even when the optional Agent Skills specification validator is unavailable;
-- strengthened provenance requirements for claims stored in `.ux/CONTEXT.md`;
+- strengthened provenance requirements for claims stored in project context;
 - require `critique` to surface an inferred goal before evaluating a design against it;
 - documented that individual installed skills remain useful without `.ux/` or the full suite.
 

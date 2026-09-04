@@ -4,7 +4,7 @@ description: Review and improve product UX content including labels, instruction
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Content
@@ -13,7 +13,7 @@ Treat words as part of the interaction, not decoration added after the design.
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Start with context
 
-Read the relevant user goal and flow plus terminology, accessibility expectations, and product constraints from `.ux/CONTEXT.md` when present. Check design-system content patterns and localization constraints when available.
+Read the relevant user goal and flow plus terminology, accessibility expectations, and product constraints from the smallest relevant project context when present. Check design-system content patterns and localization constraints when available.
 
 ## Review the job the content must do
 

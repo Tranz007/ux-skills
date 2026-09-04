@@ -20,11 +20,16 @@ Then run once:
 setup-ux
 ```
 
-UX Skills learns the project, who it serves, existing user/research evidence, the design system, engineering environment, accessibility expectations, terminology, and important existing decisions.
+```mermaid
+flowchart LR
+    A[Install UX Skills] --> B[Run setup-ux once]
+    B --> C[Talk normally]
+    C --> D[Relevant UX capability activates]
+```
 
-**That's the setup.**
+`setup-ux` determines whether the work is a new or existing product, captures product intent, learns the people and evidence that actually exist, finds the design system and engineering environment, and preserves the small amount of context future UX work needs.
 
-After that, work normally.
+**That's the setup.** After that, work normally.
 
 > Challenge this idea.
 >
@@ -44,6 +49,65 @@ After that, work normally.
 
 You do not need to know which skill handles the request. The agent chooses the relevant UX Skills automatically.
 
+## The architecture in one picture
+
+```mermaid
+flowchart TB
+    U[Designer request] --> I[Intent<br/>Why, outcome, people, scope, success]
+    I --> C[Context<br/>What is true about the product and environment]
+    C --> S[UX Skills<br/>Relevant practitioner capability]
+    S --> W[Designer + agent do the work]
+```
+
+**Intent tells the agent what good means. Context tells it what is true. Skills tell it how to reason about the UX problem.**
+
+That separation matters because an implementation can show what a product does without proving why it exists, and an AI can easily turn a plausible assumption into a fake product fact if the evidence is not kept explicit.
+
+## New and existing products
+
+`setup-ux` has two paths under the same simple command.
+
+```mermaid
+flowchart TB
+    A[setup-ux] --> B{New or existing?}
+    B -->|New| C[Start with the idea]
+    C --> D[Ask the next material question]
+    D --> E[Capture intent]
+    B -->|Existing| F[Inspect repo, docs, evidence, design system]
+    F --> G[Reconstruct draft intent]
+    G --> H[Resolve only material gaps]
+    E --> I[INTENT.md]
+    H --> I
+    I --> J[Small project context]
+    J --> K[Ready to work normally]
+```
+
+For a new project, setup is an adaptive conversation, not a UX questionnaire. For an existing project, it explores first and asks only what cannot be established reliably.
+
+## Four small context files
+
+`setup-ux` creates or refreshes only the durable context future work needs:
+
+```text
+.ux/
+├── INTENT.md
+├── CONTEXT.md
+├── DESIGN-SYSTEM.md
+└── DECISIONS.md
+```
+
+`INTENT.md` is the north star: why the product or capability exists, intended outcome, people affected, core experience, scope, non-goals, constraints, success, and material uncertainty.
+
+`CONTEXT.md` describes the operating environment: product mechanics, evidence locations, engineering workflow, accessibility expectations, terminology, and stable project facts.
+
+`DESIGN-SYSTEM.md` points to the real design system and its source-of-truth/reuse rules.
+
+`DECISIONS.md` preserves consequential decisions or points to the team's existing ADR/RFC system.
+
+The files stay small. A project can split out something like `.ux/evidence/research.md` or `.ux/users/tasks.md` later when density or repeated use actually justifies it. UX Skills does not generate empty research, persona, journey, or constraints folders just because a template could exist.
+
+Context is loaded progressively too: read intent when purpose, outcome, scope, or success can change the answer, then load only the additional context relevant to the current task.
+
 ## See it in action
 
 A designer says:
@@ -58,50 +122,17 @@ The agent may quietly use user grounding, framing, challenge, design-system fit,
 
 ## What happens in the background
 
-UX Skills quietly helps the agent:
+UX Skills helps the agent ground work in the people affected and evidence that actually exists, challenge weak assumptions, catch missing states and accessibility concerns, reuse the existing design system before inventing new components, see downstream effects of a UX change, improve UI language, preserve consequential decisions, and carry behavior and rationale into engineering.
 
-- ground work in the people affected and the evidence that actually exists;
-- challenge weak assumptions instead of immediately designing them;
-- separate evidence from guesses;
-- catch missing states, edge conditions, and accessibility concerns;
-- reuse the existing design system before inventing new components;
-- see downstream effects of a UX change;
-- improve UI content and terminology;
-- keep explanations and documentation clear and human;
-- preserve consequential design decisions;
-- create engineering handoffs that explain behavior, not just pixels;
-- write PR descriptions that engineers can actually review.
+These are separate skills internally because narrow capabilities route and maintain more reliably than one giant "UX expert" prompt. **They are not a menu the designer has to learn.**
 
-These are separate skills internally because that makes routing and maintenance reliable. **They are not a menu the designer has to learn.**
-
-Every installed skill also carries the same six background rules: **Context, User, Evidence, System, Clear, and Trust.** User-centered does not mean process-heavy: the skills do not introduce research, personas, or discovery work when the user and task are already clear or the missing information would not change the work.
-
-## Three small context files
-
-`setup-ux` creates only what the skills need to stop asking the same questions repeatedly:
-
-```text
-.ux/
-├── CONTEXT.md
-├── DESIGN-SYSTEM.md
-└── DECISIONS.md
-```
-
-`CONTEXT.md` holds the useful project basics: product, people and tasks, research/evidence locations, engineering environment, accessibility expectations, terminology, and important constraints. Research-backed personas or segments can be referenced when useful; UX Skills does not invent them just to fill the file.
-
-`DESIGN-SYSTEM.md` tells UX Skills where the real system lives and how the team expects it to be used: Figma, Storybook, packages, tokens, source-of-truth rules, and contribution expectations.
-
-`DECISIONS.md` preserves the consequential decisions people otherwise forget. If the team already uses ADRs or another decision system, UX Skills uses that instead.
-
-The designer does not have to keep these perfectly maintained. Skills inspect the actual project when they can and update their understanding as they work.
-
-`.ux/` improves continuity, but it is not a prerequisite. Each installed skill remains useful on its own when project context or the rest of the suite is unavailable; it should inspect what it can and preserve the resulting uncertainty.
+Every installed skill carries the same six background rules: **Context, User, Evidence, System, Clear, and Trust.** User-centered does not mean process-heavy: the skills do not introduce research, personas, or discovery work when the user and task are already clear or the missing information would not change the work.
 
 ## The skills under the hood
 
 | Skill | What it helps with |
 |---|---|
-| `setup-ux` | Learns the project once |
+| `setup-ux` | Captures intent and learns a new or existing project |
 | `user-grounding` | Asks who this is for and what we actually know — only when it matters |
 | `frame` | Finds the real problem behind a request |
 | `challenge` | Pushes on assumptions and weak premises |
@@ -117,7 +148,7 @@ The designer does not have to keep these perfectly maintained. Skills inspect th
 | `pr` | Writes useful UX-aware PR descriptions |
 | `clear` | Repairs existing content; its clarity rules also run across every skill |
 
-Only `setup-ux` is something a designer needs to deliberately run. The rest are designed to be selected from normal language when they are useful.
+Only `setup-ux` is something a designer needs to deliberately run. The rest are designed to be selected from normal language when useful.
 
 ## A few rules every skill follows
 
@@ -129,6 +160,8 @@ Only `setup-ux` is something a designer needs to deliberately run. The rest are 
 
 **Use the system.** Reuse and compose before adding another component.
 
+**Keep context lean.** Load the smallest combination of intent, project context, and deeper references necessary for the task.
+
 **Keep it human.** Lead with the useful point. Use only the structure the reader needs. No corporate AI sludge, canned praise, repetitive summaries, or documentation theater.
 
 **Don't make engineering guess.** Preserve behavior, states, accessibility intent, and rationale when work crosses the design/engineering boundary.
@@ -136,6 +169,15 @@ Only `setup-ux` is something a designer needs to deliberately run. The rest are 
 ## Portable by design
 
 UX Skills follows the open [Agent Skills](https://agentskills.io/) format. It is intended to work across agents that support the format rather than being tied to one model or one design tool.
+
+## Documentation
+
+- [Architecture](docs/architecture.md) — how intent, context, routing, and progressive disclosure fit together.
+- [Visual flows](docs/flows.md) — the main UX Skills flows in one place.
+- [Context](docs/context.md) — what belongs in `.ux/` and how it grows without becoming bureaucracy.
+- [Authoring](docs/authoring.md) — how to create or change skills without making the suite heavier.
+- [Roadmap](docs/roadmap.md) — what the project is optimizing for next.
+- [Evaluation](tests/README.md) — how routing, evidence integrity, setup behavior, and usefulness are tested.
 
 ## Principles
 
@@ -146,6 +188,7 @@ UX Skills follows the open [Agent Skills](https://agentskills.io/) format. It is
 5. Prefer evidence over confidence.
 6. Prefer the existing system over unnecessary invention.
 7. Keep the reasoning attached to the design all the way into engineering.
+8. Make the system smarter without making the designer feel more machinery.
 
 ## Contributing
 

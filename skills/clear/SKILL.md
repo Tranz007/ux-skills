@@ -4,7 +4,7 @@ description: Rewrite UX, product, research, handoff, ticket, or engineering-faci
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
   ux-skills-role: "shared-behavior-and-rewrite"
 ---
 
@@ -19,7 +19,7 @@ Clear has two jobs:
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -40,7 +40,7 @@ Before rewriting, infer or identify:
 - which details are necessary;
 - what uncertainty or evidence status must survive the rewrite.
 
-Use terminology and communication constraints from `.ux/CONTEXT.md` when present.
+Use terminology and communication constraints from the smallest relevant project context when present.
 
 ## Remove generated-document habits
 

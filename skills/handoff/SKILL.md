@@ -4,7 +4,7 @@ description: Prepare UX work for engineering by preserving user intent, behavior
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Handoff
@@ -13,7 +13,7 @@ Transfer design intent, not just appearance.
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Gather the source of truth
 
-Inspect the approved design, relevant flow and state decisions, design-system components, content, accessibility requirements, constraints, decision records, and the team's existing engineering workflow.
+Inspect the approved design, relevant flow and state decisions, design-system components, content, accessibility requirements, constraints, decision records, and the team's existing engineering workflow. Load only the project context needed to preserve the intended experience.
 
 Do not describe proposed behavior as approved if its status is unclear.
 
@@ -77,7 +77,7 @@ If the user only needs a handoff, do not create ticket-shaped output just becaus
 
 ## Output
 
-Create the smallest engineering package that makes the intended experience clear and testable. Point to authoritative design-system, decision, research, or design sources rather than duplicating them.
+Create the smallest engineering package that makes the intended experience clear and testable. Point to authoritative design-system, decision, research, intent, or design sources rather than duplicating them.
 
 ## Contrast example
 

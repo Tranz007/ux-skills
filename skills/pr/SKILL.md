@@ -4,7 +4,7 @@ description: Create a high-quality pull request description for UX-related imple
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # PR
@@ -13,7 +13,7 @@ Make the pull request understandable to an engineer who was not in the design co
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Inspect before writing
 
-Read the actual diff or changed files when available, the relevant design/handoff/contract, decision records, design-system context, and the repository's PR template.
+Read the actual diff or changed files when available, the relevant design/handoff/contract, decision records, the smallest relevant project context, design-system context, and the repository's PR template.
 
 Describe what the code actually changes. Do not copy a design intention into the PR as though it has already been implemented.
 
@@ -43,7 +43,7 @@ A useful PR description normally answers:
 - What remains intentionally out of scope?
 - What should reviewers pay particular attention to?
 
-Include links to authoritative design, decision, ticket, or contract artifacts when available.
+Include links to authoritative design, intent, decision, ticket, or contract artifacts when available.
 
 Do not force empty sections into the PR template.
 

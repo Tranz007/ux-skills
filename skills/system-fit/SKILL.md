@@ -4,7 +4,7 @@ description: Decide whether a UX need should reuse, compose, extend, or create a
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # System Fit
@@ -13,7 +13,7 @@ Prevent accidental design-system sprawl without forcing every problem into an ex
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Inspect the real system
 
-Use `.ux/DESIGN-SYSTEM.md` when available and inspect authoritative sources such as Storybook, component packages, token definitions, design documentation, implementation examples, and contribution rules.
+Use `.ux/DESIGN-SYSTEM.md` when available and inspect authoritative sources such as Storybook, component packages, token definitions, design documentation, implementation examples, and contribution rules. Load other project context only when it can change the system-fit decision.
 
 Do not assume Figma, Storybook, or code is the source of truth. Use the project's documented hierarchy or flag the ambiguity.
 
