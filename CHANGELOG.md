@@ -6,6 +6,15 @@ All notable changes to UX Skills will be documented here.
 
 Nothing yet.
 
+## 0.2.1 — 2026-09-04
+
+- added **Outcome** as a seventh shared behavior across every installed skill so substantial multi-step work keeps intent active, prioritizes the highest-impact unresolved gap before polishing, and verifies the actual experience against intent before completion;
+- defined `.ux/STATE.md` as optional, disposable working state for long-horizon continuity rather than a fifth core setup or project-context file;
+- made intent explicitly **stable, not frozen**: routine implementation does not rewrite it, explicit human direction or authoritative evidence may refine or change it, and the smallest useful edit is preferred over regeneration;
+- prevented implementation from retroactively redefining intent simply because shipped behavior diverged from the intended experience;
+- documented model-agnostic long-horizon execution without prescribing manager/implementer agents, dashboards, agent counts, or model-specific commands;
+- extended validation and setup evaluation cases to protect the Outcome contract, optional working-state behavior, and intent mutation rules.
+
 ## 0.2.0 — 2026-09-04
 
 - added intent-first project context with `.ux/INTENT.md` as a small north-star artifact for why, intended outcome, people affected, core experience, scope, non-goals, material constraints, success, and uncertainty;
