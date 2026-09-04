@@ -1,31 +1,50 @@
 # UX context
 
-UX Skills keeps a small amount of project context so designers do not have to re-explain the product, users, evidence, and design system in every conversation.
+UX Skills keeps a small amount of project context so designers do not have to re-explain product intent, users, evidence, the design system, and consequential decisions in every conversation.
 
-`setup-ux` creates only three files:
+`setup-ux` creates or refreshes four core files:
 
 ```text
 .ux/
+├── INTENT.md
 ├── CONTEXT.md
 ├── DESIGN-SYSTEM.md
 └── DECISIONS.md
 ```
 
+The goal is not completeness. The goal is enough durable context for future agent work to start from the same understanding as the designer.
+
+## INTENT.md
+
+`INTENT.md` is the north star. It owns:
+
+- why the product or capability should exist;
+- the intended outcome;
+- who is affected;
+- the core task or experience;
+- current scope and explicit non-goals;
+- material constraints;
+- how success is understood, when known;
+- material assumptions, conflicts, and unknowns.
+
+Keep it short. It is not a PRD, roadmap, feature backlog, or implementation plan.
+
+For an existing product, do not confuse implementation with intent. A repository can prove that a behavior exists without proving why it exists or whether it still represents the desired outcome.
+
 ## CONTEXT.md
 
-Keep the useful project basics together:
+`CONTEXT.md` holds the operating environment:
 
-- what the product does and the major journeys;
-- who the product serves, their relevant goals/tasks, and meaningful groups when supported by evidence;
-- where research, analytics, support, and other customer evidence live;
+- observable product mechanics and major journeys;
+- useful user/task context and where research, analytics, support, and other evidence live;
 - engineering stack and workflow relevant to UX;
 - accessibility expectations;
 - important terminology;
-- real constraints and material unknowns.
+- stable facts and material unknowns that help future work.
 
 Do not create demographic detail or personas just to make the context look complete. If the project already has useful, research-backed personas, segments, or behavioral models, reference them. Otherwise record only what is actually known and point to the evidence.
 
-This is not a product requirements document or a research repository. Keep it short and point to authoritative sources instead of copying them.
+This is not a research repository. Keep it short and point to authoritative sources instead of copying them.
 
 ## DESIGN-SYSTEM.md
 
@@ -43,7 +62,48 @@ The purpose is simple: stop the agent from casually inventing a parallel design 
 
 Keep only consequential UX or architecture decisions that future designers or engineers are likely to question.
 
-If the project already uses ADRs, RFCs, or another decision-record system, point to it instead of duplicating it.
+If the project already uses ADRs, RFCs, or another decision-record system, point to it instead of duplicating it. A small decision can stay inline; a large one can link to a dedicated record when its rationale needs more room.
+
+## Progressive context
+
+The four core files are intentionally small. Additional context should appear only when density, repeated use, or independent ownership makes a split useful.
+
+For example, a project might eventually justify:
+
+```text
+.ux/
+├── users/
+│   ├── tasks.md
+│   └── journeys.md
+├── evidence/
+│   ├── research.md
+│   └── analytics.md
+└── constraints/
+    ├── accessibility.md
+    └── technical.md
+```
+
+Do not create these during setup by default. Empty folders and placeholder files create ceremony without improving the agent's judgment.
+
+Do not copy full reports, design-system documentation, or policy text into `.ux/`. Point to the source.
+
+## Load only what the task needs
+
+Project context should be retrieved progressively rather than injected wholesale into every request.
+
+```mermaid
+flowchart LR
+    A[Current request] --> B{Can product purpose,<br/>scope or success change the answer?}
+    B -->|Yes| C[Read INTENT.md]
+    B -->|No| D[Skip intent if irrelevant]
+    C --> E[Select relevant context]
+    D --> E
+    E --> F[Use relevant UX skill]
+```
+
+A substantial flow critique may need intent, user/task evidence, design-system rules, and accessibility context. A small terminology rewrite may need only the current UI, product terminology, and the content skill.
+
+The rule is: **load the smallest context set that can support a sound decision.**
 
 ## User evidence
 
@@ -65,12 +125,22 @@ Useful distinctions are:
 - **Unknown** — not enough information yet.
 - **Conflicted** — credible sources disagree.
 
-Do not label everything. Surface these only when the distinction affects the decision.
+Do not label everything. Surface these only when the distinction affects confidence or a decision.
 
-## Setup behavior
+## New-project setup
 
-`setup-ux` explores first. It should learn as much as possible from the repo, user/research evidence, design-system sources, connected design tools, accessibility guidance, issue/PR conventions, and existing documentation before asking the designer anything.
+For greenfield work, `setup-ux` begins with the idea in the designer's words and asks the next useful question rather than running a fixed questionnaire. It captures `INTENT.md` first once there is enough clarity to guide decisions, then creates the smallest supporting context.
 
-Missing information is fine. Ask only when the answer materially changes how UX Skills should behave.
+Missing information is allowed. Unknowns remain unknown until evidence or a human decision resolves them.
 
-The files are memory aids, not configuration bureaucracy. The actual project remains the source of truth.
+## Existing-project setup
+
+For an existing product, `setup-ux` explores first. It learns as much as possible from the repo, user/research evidence, design-system sources, connected design tools, accessibility guidance, issue/PR conventions, and existing documentation before asking the designer anything.
+
+If a v0.1 project already has the original three-file `.ux/` structure, setup preserves those files and adds `INTENT.md`. It should not churn established context just to fit the newer structure.
+
+## Intent changes less often than design
+
+Do not rewrite `INTENT.md` for routine interface work. Update it when new evidence or a consequential decision changes the product's purpose, intended outcome, people, scope, non-goals, constraints, or definition of success.
+
+The actual project and its authoritative evidence remain the source of truth. `.ux/` is the durable orientation layer that helps the agent use those sources well.
