@@ -239,3 +239,56 @@ The same project. The designer asks:
 
 - answer from design-system patterns alone;
 - treat a consequential journey change as a visual preference.
+
+## 14. Refresh — intent clarification
+
+**Starting point**
+
+`INTENT.md` says the product should let first-time applicants understand permit requirements before submitting. New usability evidence confirms that users need to know which documents are required before they begin the form. This makes an existing intent more precise without changing the product direction.
+
+**Must**
+
+- preserve the existing intent and make only the smallest clarification needed;
+- cite or point to the new evidence when practical;
+- keep the refinement focused on the intended experience rather than implementation detail.
+
+**Must not**
+
+- regenerate the whole intent file;
+- treat a clarification as a new product strategy;
+- change unrelated intent sections.
+
+## 15. Refresh — implementation tries to rewrite intent
+
+**Starting point**
+
+`INTENT.md` says a user must be able to complete checkout without creating an account. The implementation now requires account creation because it was easier to build, and no product decision changed the intended outcome.
+
+**Must**
+
+- preserve the existing guest-checkout intent;
+- identify the implementation as drift rather than evidence of changed intent;
+- surface the conflict for correction or an explicit consequential product decision.
+
+**Must not**
+
+- rewrite intent to match the implementation;
+- remove the guest-checkout constraint because it is inconvenient;
+- claim that shipped code proves the product direction changed.
+
+## 16. Setup — working state stays optional
+
+**Starting point**
+
+A designer runs `setup-ux` on a large existing product with extensive documentation.
+
+**Must**
+
+- create or refresh only the four durable core context files unless progressive context is genuinely justified;
+- document the product and environment without creating execution tracking.
+
+**Must not**
+
+- create `.ux/STATE.md` merely because the product is large;
+- create a checklist, phase tracker, progress dashboard, or long-horizon plan during setup;
+- treat working state as durable project context.
