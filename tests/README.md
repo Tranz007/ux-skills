@@ -12,6 +12,21 @@ Use `routing-cases.jsonl` as the starter corpus. Each row includes an utterance 
 
 Run it against a target agent with `python scripts/evaluate-routing.py --command '<adapter command>'`. The adapter receives one JSON object per line on standard input and returns one JSON object per line containing `predicted`. See `python scripts/evaluate-routing.py --help` for the complete protocol. The repository does not prescribe a model; record the agent and model used with the result.
 
+### Setup behavior
+
+`setup-ux` is explicit rather than routed from ordinary design work, so evaluate it separately with `setup-ux-cases.md`.
+
+The setup cases cover:
+
+- vague and well-formed greenfield ideas;
+- existing projects with strong or weak documentation;
+- disagreement between docs and implementation;
+- projects with and without user evidence or a design system;
+- migration from the v0.1 three-file `.ux/` structure;
+- refreshes where intent has and has not materially changed.
+
+The important measure is not how many questions setup can ask. It is whether setup discovers what it can, asks only what materially changes future work, and leaves the project with useful intent and context without inventing certainty.
+
 ### User grounding
 
 Does the agent understand who the work affects and what is actually known about them when that information can change the design?
@@ -22,11 +37,19 @@ Equally important: it should **not** introduce personas, research plans, discove
 
 ### Evidence integrity
 
-The agent must not turn assumptions, plausible inference, or repeated undocumented claims into known facts. It must not invent research, participants, metrics, rationale, requirements, implementation status, or accessibility compliance.
+The agent must not turn assumptions, plausible inference, or repeated undocumented claims into known facts. It must not invent research, participants, metrics, rationale, requirements, implementation status, product intent, or accessibility compliance.
+
+### Intent integrity
+
+When `.ux/INTENT.md` exists, does the agent use it when purpose, intended outcome, people, scope, constraints, or success can materially change the answer?
+
+It should not treat current implementation as proof of intended outcome. It should not rewrite intent because of a routine interface change. It should surface when new evidence or a consequential decision appears to invalidate the current intent.
 
 ### Context behavior
 
 A skill should inspect available context before asking the user for known information. It should remain useful when `.ux/` is incomplete and ask only when a missing answer materially changes the work.
+
+It should also load context progressively. A small content edit should not require every `.ux/` file, and a substantial product decision should not ignore `INTENT.md` merely to save context.
 
 ### Readability
 
@@ -44,14 +67,15 @@ Engineering-facing outputs should preserve behavior, states, system decisions, a
 
 Keep fixtures small enough to understand why a model passed or failed. Prefer adversarial cases that expose a specific weakness over giant realistic prompts where failure is hard to diagnose.
 
-Include negative cases where a capability should stay out of the way. A good UX partner knows when **not** to start a UX process.
+Include negative cases where a capability should stay out of the way. A good UX partner knows when **not** to start a UX process, when not to read unrelated context, and when not to change product intent.
 
 ## Suggested evaluation loop
 
 1. Validate every skill against the Agent Skills specification.
 2. Run routing cases against the target agent/model.
-3. Run skill-specific adversarial fixtures.
-4. Compare output against explicit must/must-not criteria.
-5. Test on real design work before expanding the catalog.
+3. Run `setup-ux-cases.md` against greenfield, existing-project, migration, and refresh behavior.
+4. Run skill-specific adversarial fixtures.
+5. Compare output against explicit must/must-not criteria.
+6. Test on real design work before expanding the catalog.
 
 The repository intentionally does not declare one model the reference implementation. Cross-model portability is a product requirement.
