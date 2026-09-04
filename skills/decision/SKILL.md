@@ -4,7 +4,7 @@ description: Recover or preserve consequential UX and architecture rationale. Us
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Decision
@@ -13,7 +13,7 @@ Help future designers and engineers understand **why**, without creating documen
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## When the user asks why
 
-Search available decision records, research, requirements, issue/PR history, design-system documentation, implementation history, and `.ux/` context.
+Search available decision records, research, requirements, issue/PR history, design-system documentation, implementation history, and the smallest relevant `.ux/` context.
 
 Separate:
 
@@ -50,6 +50,12 @@ A durable record is useful when a choice:
 
 Routine layout, copy, and styling changes usually do not need a decision record.
 
+## Check intent impact
+
+After a consequential decision, check whether it explicitly changes why the product exists, the intended outcome, primary people affected, scope, non-goals, material constraints, or definition of success.
+
+If it does, `INTENT.md` should change with it. Preserve the evidence or decision that caused the change. Do not rewrite intent merely because implementation changed, and do not infer a strategy shift from code alone.
+
 ## Use the team's system
 
 If the project has ADR, RFC, design-decision, or documentation conventions, use them. Do not introduce a competing format.
@@ -72,6 +78,8 @@ Preserve what was actually known at decision time. Do not rewrite assumptions as
 ## Output
 
 Answer a "why" question directly when that is all the user needs. Create or recommend a durable record only when the decision is consequential enough to justify it.
+
+If the decision materially changes product intent, say so explicitly and include the intent update in the work when the user is asking you to preserve the decision in project context.
 
 ## Contrast example
 
