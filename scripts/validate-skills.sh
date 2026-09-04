@@ -14,6 +14,7 @@ fi
 failed=0
 count=0
 expected_context='- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.'
+expected_outcome='- **Outcome** — for substantial multi-step work, keep intent active, use a small `.ux/STATE.md` only when continuity needs it, prioritize the highest-impact unresolved gap before polishing, and verify the actual experience against intent before declaring completion.'
 
 for skill in skills/*/; do
   [[ -d "$skill" ]] || continue
@@ -38,7 +39,7 @@ for skill in skills/*/; do
     continue
   fi
 
-  for principle in Context User Evidence System Clear Trust; do
+  for principle in Context User Evidence System Clear Trust Outcome; do
     if ! grep -q "\*\*${principle}\*\*" "$skill_file"; then
       echo "$skill_file is missing shared principle: $principle" >&2
       failed=$((failed + 1))
@@ -50,6 +51,11 @@ for skill in skills/*/; do
     failed=$((failed + 1))
   fi
 
+  if ! grep -Fqx -- "$expected_outcome" "$skill_file"; then
+    echo "$skill_file is missing the shared long-horizon Outcome rule." >&2
+    failed=$((failed + 1))
+  fi
+
   if ! grep -q 'Do not introduce research questions, personas, or discovery work' "$skill_file"; then
     echo "$skill_file is missing the anti-ceremony user-grounding guardrail." >&2
     failed=$((failed + 1))
@@ -57,7 +63,7 @@ for skill in skills/*/; do
 done
 
 setup_file="skills/setup-ux/SKILL.md"
-for setup_rule in '.ux/INTENT.md' 'New project: capture intent conversationally' 'Existing project: inspect before reconstructing intent' 'Use progressive context'; do
+for setup_rule in '.ux/INTENT.md' 'New project: capture intent conversationally' 'Existing project: inspect before reconstructing intent' 'Use progressive context' 'Refresh intent carefully' '.ux/STATE.md'; do
   if ! grep -Fq -- "$setup_rule" "$setup_file"; then
     echo "$setup_file is missing v0.2 setup behavior: $setup_rule" >&2
     failed=$((failed + 1))
