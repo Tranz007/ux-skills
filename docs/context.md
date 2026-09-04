@@ -31,6 +31,16 @@ Keep it short. It is not a PRD, roadmap, feature backlog, or implementation plan
 
 For an existing product, do not confuse implementation with intent. A repository can prove that a behavior exists without proving why it exists or whether it still represents the desired outcome.
 
+### Stable, not frozen
+
+Intent should change less often than design, but it is allowed to evolve.
+
+Existing intent is the default. Update it only when explicit human direction or authoritative evidence shows that the product's purpose, intended outcome, people, scope, non-goals, material constraints, or definition of success has actually changed. Make the smallest useful edit rather than regenerating the file.
+
+A clarification can refine already-established meaning when implementation or evidence makes it more precise. A consequential change should preserve the decision or evidence that caused it in `DECISIONS.md` or the project's existing ADR/RFC system.
+
+Never rewrite intent to rationalize implementation, remove an inconvenient constraint, or make completed work appear aligned after the fact. Agent inference alone does not override established intent.
+
 ## CONTEXT.md
 
 `CONTEXT.md` holds the operating environment:
@@ -63,6 +73,39 @@ The purpose is simple: stop the agent from casually inventing a parallel design 
 Keep only consequential UX or architecture decisions that future designers or engineers are likely to question.
 
 If the project already uses ADRs, RFCs, or another decision-record system, point to it instead of duplicating it. A small decision can stay inline; a large one can link to a dedicated record when its rationale needs more room.
+
+## Optional working state
+
+`.ux/STATE.md` is not a fifth core context file and `setup-ux` should not create it by default.
+
+An agent may create it temporarily for substantial multi-step work when continuity would otherwise be at risk across phases, a long session, or multiple sessions. Keep it small enough to scan:
+
+```markdown
+# Current state
+
+## Current objective
+What outcome the current work is trying to achieve.
+
+## Current phase
+Where the work is now.
+
+## Completed
+Only meaningful completed work.
+
+## Highest-impact unresolved gap
+The unfinished issue most likely to keep the intended outcome from being achieved.
+
+## Risks or blockers
+Only active issues that can materially affect the work.
+
+## Next action
+The next highest-impact move.
+
+## Last intent check
+Whether the current result still aligns with relevant intent, plus any material drift.
+```
+
+`STATE.md` is working memory, not product truth, a roadmap, a backlog, or a progress-reporting artifact for its own sake. Update it only when doing so helps continuity. Delete it or stop maintaining it when the work no longer needs it.
 
 ## Progressive context
 
@@ -105,6 +148,16 @@ A substantial flow critique may need intent, user/task evidence, design-system r
 
 The rule is: **load the smallest context set that can support a sound decision.**
 
+## Long-horizon work
+
+For substantial work, intent remains the durable anchor while tasks and phases are temporary means of getting there.
+
+The agent should decompose work only when that helps execution, keep the intended outcome active, prioritize the highest-impact unresolved gap before polishing already-adequate work, and re-check the current result against intent when a phase completes or progress stalls.
+
+Before declaring substantial work complete, perform an outcome check: would the actual user experience now satisfy the relevant intended outcome, core experience, constraints, and success criteria? A finished checklist is not enough if the experience still fails the intent.
+
+The designer should not have to orchestrate this loop. Agents may use sub-agents or parallel work when useful, but UX Skills does not prescribe an agent topology, agent count, progress dashboard, or model-specific command.
+
 ## User evidence
 
 User-centered work does not require a persona for every task. When user context matters, distinguish what is supported by research or behavior from what the team assumes.
@@ -138,9 +191,5 @@ Missing information is allowed. Unknowns remain unknown until evidence or a huma
 For an existing product, `setup-ux` explores first. It learns as much as possible from the repo, user/research evidence, design-system sources, connected design tools, accessibility guidance, issue/PR conventions, and existing documentation before asking the designer anything.
 
 If a v0.1 project already has the original three-file `.ux/` structure, setup preserves those files and adds `INTENT.md`. It should not churn established context just to fit the newer structure.
-
-## Intent changes less often than design
-
-Do not rewrite `INTENT.md` for routine interface work. Update it when new evidence or a consequential decision changes the product's purpose, intended outcome, people, scope, non-goals, constraints, or definition of success.
 
 The actual project and its authoritative evidence remain the source of truth. `.ux/` is the durable orientation layer that helps the agent use those sources well.
