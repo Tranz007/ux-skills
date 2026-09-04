@@ -86,7 +86,7 @@ flowchart TB
     J --> K[Ready to work normally]
 ```
 
-For a new project, setup is an adaptive conversation, not a UX questionnaire. For an existing project, it explores first and asks only what cannot be established reliably.
+For a new project, setup is an adaptive conversation, not a UX questionnaire. For an existing product, it explores first and asks only what cannot be established reliably.
 
 ## Four small context files
 
@@ -100,7 +100,7 @@ For a new project, setup is an adaptive conversation, not a UX questionnaire. Fo
 └── DECISIONS.md
 ```
 
-`INTENT.md` is the north star: why the product or capability exists, intended outcome, people affected, core experience, scope, non-goals, constraints, success, and material uncertainty.
+`INTENT.md` is the north star: why the product or capability exists, intended outcome, people affected, core experience, scope, non-goals, constraints, success, and material uncertainty. It is stable, not frozen: routine implementation should not rewrite it, but explicit human direction or authoritative evidence can refine or change it when intent itself changes.
 
 `CONTEXT.md` describes the operating environment: product mechanics, evidence locations, engineering workflow, accessibility expectations, terminology, and stable project facts.
 
@@ -111,6 +111,8 @@ For a new project, setup is an adaptive conversation, not a UX questionnaire. Fo
 The files stay small. A project can split out something like `.ux/evidence/research.md` or `.ux/users/tasks.md` later when density or repeated use actually justifies it. UX Skills does not generate empty research, persona, journey, or constraints folders just because a template could exist.
 
 Context is loaded progressively too: read intent when purpose, outcome, scope, or success can change the answer, then load only the additional context relevant to the current task.
+
+For substantial multi-step work, an agent may temporarily maintain `.ux/STATE.md` when continuity would otherwise be lost. It is not created by `setup-ux`, is not a fifth core context file, and should disappear or stop being maintained when the work no longer needs it.
 
 ## See it in action
 
@@ -130,7 +132,7 @@ UX Skills helps the agent ground work in the people affected and evidence that a
 
 These are separate skills internally because narrow capabilities route and maintain more reliably than one giant "UX expert" prompt. **They are not a menu the designer has to learn.**
 
-Every installed skill carries the same six background rules: **Context, User, Evidence, System, Clear, and Trust.** User-centered does not mean process-heavy: the skills do not introduce research, personas, or discovery work when the user and task are already clear or the missing information would not change the work.
+Every installed skill carries the same seven background rules: **Context, User, Evidence, System, Clear, Trust, and Outcome.** Outcome matters only for substantial multi-step work: keep the intended result active, work the highest-impact unresolved gap before polishing, and verify the actual experience against intent before calling the work done. User-centered does not mean process-heavy: the skills do not introduce research, personas, discovery, working-state files, or orchestration ceremony when the task does not need them.
 
 ## The skills under the hood
 
@@ -165,6 +167,8 @@ Only `setup-ux` is something a designer needs to deliberately run. The rest are 
 **Use the system.** Reuse and compose before adding another component.
 
 **Keep context lean.** Load the smallest combination of intent, project context, and deeper references necessary for the task.
+
+**Stay on the outcome.** On substantial work, do not mistake task completion for problem completion. Keep intent active, tackle the most consequential unfinished gap, and check the actual experience before declaring success.
 
 **Keep it human.** Lead with the useful point. Use only the structure the reader needs. No corporate AI sludge, canned praise, repetitive summaries, or documentation theater.
 
