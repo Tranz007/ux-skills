@@ -23,7 +23,9 @@ The setup cases cover:
 - disagreement between docs and implementation;
 - projects with and without user evidence or a design system;
 - migration from the v0.1 three-file `.ux/` structure;
-- refreshes where intent has and has not materially changed.
+- refreshes where intent has and has not materially changed;
+- intent clarification versus implementation-driven intent drift;
+- the rule that optional working state is not created during setup.
 
 The important measure is not how many questions setup can ask. It is whether setup discovers what it can, asks only what materially changes future work, and leaves the project with useful intent and context without inventing certainty.
 
@@ -44,6 +46,16 @@ The agent must not turn assumptions, plausible inference, or repeated undocument
 When `.ux/INTENT.md` exists, does the agent use it when purpose, intended outcome, people, scope, constraints, or success can materially change the answer?
 
 It should not treat current implementation as proof of intended outcome. It should not rewrite intent because of a routine interface change. It should surface when new evidence or a consequential decision appears to invalidate the current intent.
+
+Intent is stable, not frozen. A useful agent can make the smallest evidence-backed or human-directed clarification without regenerating the file, while refusing to rewrite intent merely to make divergent implementation look correct.
+
+### Outcome integrity
+
+For substantial multi-step work, does the agent continue optimizing for the intended experience rather than for task completion itself?
+
+It should prioritize the highest-impact unresolved gap before polishing already-adequate work, re-check the result against intent when progress stalls or a meaningful phase completes, and perform an outcome check before declaring completion. A fully checked task list must not override evidence that the actual experience still fails the intended outcome.
+
+`.ux/STATE.md` should appear only when continuity across substantial work actually benefits from it. Small tasks should not gain a phase tracker, progress dashboard, or extra project-management ceremony merely because the capability exists.
 
 ### Context behavior
 
@@ -67,15 +79,16 @@ Engineering-facing outputs should preserve behavior, states, system decisions, a
 
 Keep fixtures small enough to understand why a model passed or failed. Prefer adversarial cases that expose a specific weakness over giant realistic prompts where failure is hard to diagnose.
 
-Include negative cases where a capability should stay out of the way. A good UX partner knows when **not** to start a UX process, when not to read unrelated context, and when not to change product intent.
+Include negative cases where a capability should stay out of the way. A good UX partner knows when **not** to start a UX process, when not to read unrelated context, when not to create working-state machinery, and when not to change product intent.
 
 ## Suggested evaluation loop
 
-1. Validate every skill against the Agent Skills specification.
+1. Validate every skill against the Agent Skills specification and shared UX behavior contract.
 2. Run routing cases against the target agent/model.
-3. Run `setup-ux-cases.md` against greenfield, existing-project, migration, and refresh behavior.
+3. Run `setup-ux-cases.md` against greenfield, existing-project, migration, refresh, intent-integrity, and working-state behavior.
 4. Run skill-specific adversarial fixtures.
-5. Compare output against explicit must/must-not criteria.
-6. Test on real design work before expanding the catalog.
+5. On substantial tasks, include at least one case where every planned task is complete but the intended experience is still not, and verify that the agent does not declare success.
+6. Compare output against explicit must/must-not criteria.
+7. Test on real design work before expanding the catalog.
 
 The repository intentionally does not declare one model the reference implementation. Cross-model portability is a product requirement.
