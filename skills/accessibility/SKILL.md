@@ -4,7 +4,7 @@ description: Review UX design intent and available implementation evidence for a
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Accessibility
@@ -13,7 +13,7 @@ Make accessibility part of the interaction design rather than a compliance pass 
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Establish the actual target
 
-Read accessibility expectations from `.ux/CONTEXT.md` when present, then inspect organizational policy, project standards, design-system accessibility documentation, and relevant platform requirements. If the project does not define a target, state what standard you are using as a review baseline rather than inventing a requirement.
+Read accessibility expectations from the smallest relevant `.ux/` context when present, then inspect organizational policy, project standards, design-system accessibility documentation, and relevant platform requirements. If the project does not define a target, state what standard you are using as a review baseline rather than inventing a requirement.
 
 ## Inspect behavior, not just appearance
 
