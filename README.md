@@ -3,7 +3,7 @@
 [![Validate Agent Skills](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Tranz007/ux-skills/actions/workflows/validate.yml)
 
 <p align="center">
-  <img src="docs/images/ux-skills-hero.png" alt="UX Skills — your UX thinking partner for the AI era" width="100%" />
+  <img src="docs/images/UXSkills_Hero.png" alt="UX Skills — your UX thinking partner for the AI era" width="100%" />
 </p>
 
 **Your AI design partner should know UX.**
