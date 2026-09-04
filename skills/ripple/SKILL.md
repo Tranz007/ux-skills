@@ -4,7 +4,7 @@ description: Trace what else a UX, flow, component, content, or design-system ch
 license: MIT
 metadata:
   author: Tranz007
-  version: "0.1.3"
+  version: "0.2.0"
 ---
 
 # Ripple
@@ -13,7 +13,7 @@ Answer one question: **if we change this, what else moves?**
 
 ## Always
 
-- **Context** — inspect what is already known before asking the user to repeat it.
+- **Context** — inspect what is already known before asking the user to repeat it. Use `.ux/INTENT.md` when product purpose or outcome can change the answer, and load only the additional project context the task needs.
 - **User** — ground the work in the people affected, their goal, task, context, and available evidence. Do not invent user needs, behaviors, or personas.
 - **Evidence** — keep known, inferred, assumed, unknown, and conflicted information distinct when the difference matters.
 - **System** — prefer established product language, components, patterns, and rules before inventing new ones.
@@ -26,7 +26,7 @@ Do not introduce research questions, personas, or discovery work when the user a
 
 ## Start from the change
 
-Inspect the proposed change and whatever project context is available. Look for actual reuse and dependencies before speculating.
+Inspect the proposed change and the smallest relevant project context. Look for actual reuse and dependencies before speculating.
 
 ## Trace the ripple
 
